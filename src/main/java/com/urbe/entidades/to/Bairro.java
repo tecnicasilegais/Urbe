@@ -1,5 +1,10 @@
 package com.urbe.entidades.to;
 
-public class Bairro {
+import com.urbe.entidades.geometria.Area;
 
+public class Bairro
+{
+	private String nome;
+	private Area limites;
+	private int custoBase;
 }

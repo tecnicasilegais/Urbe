@@ -1,5 +1,9 @@
 package com.urbe.entidades.to;
 
-public class Cidade {
+import java.util.List;
 
+public class Cidade
+{
+	private String nome;
+	private List bairro;
 }
