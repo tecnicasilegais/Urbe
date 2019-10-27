@@ -1,5 +1,6 @@
 package com.urbe.entidades.enums;
 
-public enum CategoriaVeiculo {
-    SIMPLES, NORMAL, LUXO;
+public enum CategoriaVeiculo
+{
+	SIMPLES, NORMAL, LUXO
 }

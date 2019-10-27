@@ -6,16 +6,16 @@ public class Viagem
 {
 	private int id;
 	private LocalTime hora;
-	private Roteiro roteiro;
+	private Bairro origem;
+	private Bairro destino;
 	private Motorista motorista;
 	private Passageiro passageiro;
 	private double custo;
 
-	public Viagem(int id, LocalTime hora, Roteiro roteiro, Motorista motorista, Passageiro passageiro, double custo)
+	public Viagem(Bairro origem, Bairro destino, Motorista motorista, Passageiro passageiro, double custo)
 	{
-		this.id = id;
-		this.hora = hora;
-		this.roteiro = roteiro;
+		this.origem = origem;
+		this.destino = destino;
 		this.motorista = motorista;
 		this.passageiro = passageiro;
 		this.custo = custo;
@@ -42,14 +42,24 @@ public class Viagem
 		this.hora = hora;
 	}
 
-	public Roteiro getRoteiro()
+	public Bairro getOrigem()
 	{
-		return roteiro;
+		return origem;
 	}
 
-	public void setRoteiro(Roteiro roteiro)
+	public void setOrigem(Bairro origem)
 	{
-		this.roteiro = roteiro;
+		this.origem = origem;
+	}
+
+	public Bairro getDestino()
+	{
+		return destino;
+	}
+
+	public void setDestino(Bairro destino)
+	{
+		this.destino = destino;
 	}
 
 	public Motorista getMotorista()

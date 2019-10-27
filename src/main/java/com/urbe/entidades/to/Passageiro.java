@@ -4,18 +4,23 @@ public class Passageiro
 {
 	private String cpf;
 	private String nome;
-	private int nota;
+	private int somaAvaliacoes;
 	private int qtdAvaliacoes;
 
-	public Passageiro(String cpf, String nome, int nota, int qtdAvaliacoes)
+	public Passageiro(String cpf, String nome, int somaAvaliacoes, int qtdAvaliacoes)
 	{
 		this.cpf = cpf;
 		this.nome = nome;
-		this.nota = nota;
+		this.somaAvaliacoes = somaAvaliacoes;
 		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
 
 	// region Getters/Setters
+	public double getNota()
+	{
+		return this.somaAvaliacoes / this.qtdAvaliacoes;
+	}
+
 	public String getCpf()
 	{
 		return cpf;
@@ -36,14 +41,14 @@ public class Passageiro
 		this.nome = nome;
 	}
 
-	public int getNota()
+	public int getSomaAvaliacoes()
 	{
-		return nota;
+		return somaAvaliacoes;
 	}
 
-	public void setNota(int nota)
+	public void setSomaAvaliacoes(int somaAvaliacoes)
 	{
-		this.nota = nota;
+		this.somaAvaliacoes = somaAvaliacoes;
 	}
 
 	public int getQtdAvaliacoes()

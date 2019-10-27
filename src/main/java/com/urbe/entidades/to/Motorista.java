@@ -6,7 +6,7 @@ public class Motorista
 {
 	private String cpf;
 	private String nome;
-	private int nota;
+	private int somaAvaliacoes;
 	private int qtdAvaliacoes;
 	private Veiculo veiculo;
 	private FormaPagamento formaPagamento;
@@ -15,23 +15,28 @@ public class Motorista
 	{
 		this.cpf = cpf;
 		this.nome = nome;
-		this.nota = 0;
+		this.somaAvaliacoes = 0;
 		this.qtdAvaliacoes = 0;
 		this.veiculo = veiculo;
 		this.formaPagamento = formaPagamento;
 	}
 
-	public Motorista(String cpf, String nome, int nota, int qtdAvaliacoes, Veiculo veiculo, FormaPagamento formaPagamento)
+	public Motorista(String cpf, String nome, int somaAvaliacoes, int qtdAvaliacoes, Veiculo veiculo, FormaPagamento formaPagamento)
 	{
 		this.cpf = cpf;
 		this.nome = nome;
-		this.nota = nota;
+		this.somaAvaliacoes = somaAvaliacoes;
 		this.qtdAvaliacoes = qtdAvaliacoes;
 		this.veiculo = veiculo;
 		this.formaPagamento = formaPagamento;
 	}
 
 	// region Getters/Setters
+	public double getNota()
+	{
+		return this.somaAvaliacoes / this.qtdAvaliacoes;
+	}
+
 	public String getCpf()
 	{
 		return cpf;
@@ -52,14 +57,14 @@ public class Motorista
 		this.nome = nome;
 	}
 
-	public int getNota()
+	public int getSomaAvaliacoes()
 	{
-		return nota;
+		return somaAvaliacoes;
 	}
 
-	public void setNota(int nota)
+	public void setSomaAvaliacoes(int somaAvaliacoes)
 	{
-		this.nota = nota;
+		this.somaAvaliacoes = somaAvaliacoes;
 	}
 
 	public int getQtdAvaliacoes()
