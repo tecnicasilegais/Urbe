@@ -37,14 +37,14 @@ public class Area
 		{
 			situacao = TODA_DENTRO;
 		}
-		else if ((regiaoP1 & regiaoP2) == 0)
+		else if ((regiaoP1 & regiaoP2) != 0)
 		{
 			situacao = TODA_FORA;
 		}
 		return situacao;
 	}
 
-	private int getRegiao(Ponto ponto)
+	public int getRegiao(Ponto ponto)
 	{
 		int regiao = 0; //Dentro
 
