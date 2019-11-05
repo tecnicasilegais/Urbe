@@ -1,6 +1,6 @@
 package com.Urbe.testes;
 
-import com.urbe.entidades.enums.SituacaoReta;
+import com.urbe.entidades.geometria.SituacaoReta;
 import com.urbe.entidades.geometria.Area;
 import com.urbe.entidades.geometria.Ponto;
 import com.urbe.entidades.geometria.Reta;

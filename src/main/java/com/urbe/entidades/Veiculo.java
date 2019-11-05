@@ -1,4 +1,4 @@
-package com.urbe.entidades.to;
+package com.urbe.entidades;
 
 public class Veiculo
 {

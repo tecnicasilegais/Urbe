@@ -1,4 +1,4 @@
-package com.urbe.entidades.enums;
+package com.urbe.entidades;
 
 public enum FormaPagamento
 {

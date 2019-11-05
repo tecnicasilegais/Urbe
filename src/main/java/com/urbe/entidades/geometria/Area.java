@@ -1,9 +1,7 @@
 package com.urbe.entidades.geometria;
 
-import com.urbe.entidades.enums.SituacaoReta;
-
-import static com.urbe.entidades.enums.RegiaoPonto.*;
-import static com.urbe.entidades.enums.SituacaoReta.*;
+import static com.urbe.entidades.geometria.RegiaoPonto.*;
+import static com.urbe.entidades.geometria.SituacaoReta.*;
 
 public class Area
 {

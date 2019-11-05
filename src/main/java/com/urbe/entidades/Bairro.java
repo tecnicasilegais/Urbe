@@ -1,6 +1,7 @@
-package com.urbe.entidades.to;
+package com.urbe.entidades;
 
 import com.urbe.entidades.geometria.Area;
+import com.urbe.entidades.geometria.Ponto;
 
 public class Bairro
 {
@@ -8,7 +9,13 @@ public class Bairro
 	private Area limites;
 	private int custoBase;
 
-	public Bairro(String nome, Area limites, int custoBase)
+	public static Bairro criaBairroQuadrado(String nome, Ponto p1, int tamanhoLado, int custo)
+	{
+		Area a = new Area(p1, new Ponto(p1.getX() + lado, p1.getY() - lado));
+		return new Bairro(nome, a, custo);
+	}
+
+	private Bairro(String nome, Area limites, int custoBase)
 	{
 		this.nome = nome;
 		this.limites = limites;

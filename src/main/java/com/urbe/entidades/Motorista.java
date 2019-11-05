@@ -1,6 +1,4 @@
-package com.urbe.entidades.to;
-
-import com.urbe.entidades.enums.FormaPagamento;
+package com.urbe.entidades;
 
 public class Motorista
 {
