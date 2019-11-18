@@ -1,20 +1,16 @@
 package com.urbe.entidades;
 
-public class Veiculo
+public abstract class Veiculo
 {
 	private String placa;
 	private String marca;
 	private String cor;
-	private boolean atendeCategoriaInferior;
-	private boolean bagageiroGrande;
 
-	public Veiculo(String placa, String marca, String cor, boolean atendeCategoriaInferior, boolean bagageiroGrande)
+	public Veiculo(String placa, String marca, String cor)
 	{
 		this.placa = placa;
 		this.marca = marca;
 		this.cor = cor;
-		this.atendeCategoriaInferior = atendeCategoriaInferior;
-		this.bagageiroGrande = bagageiroGrande;
 	}
 
 	// region Getters/Setters
@@ -23,19 +19,9 @@ public class Veiculo
 		return placa;
 	}
 
-	public void setPlaca(String placa)
-	{
-		this.placa = placa;
-	}
-
 	public String getMarca()
 	{
 		return marca;
-	}
-
-	public void setMarca(String marca)
-	{
-		this.marca = marca;
 	}
 
 	public String getCor()
@@ -43,29 +29,11 @@ public class Veiculo
 		return cor;
 	}
 
-	public void setCor(String cor)
+	@Override
+	public String toString()
 	{
-		this.cor = cor;
+		return getClass().getName() + " [ Cor=" + cor + ", marca=" + marca + ", placa=" + placa + "]";
 	}
 
-	public boolean isAtendeCategoriaInferior()
-	{
-		return atendeCategoriaInferior;
-	}
-
-	public void setAtendeCategoriaInferior(boolean atendeCategoriaInferior)
-	{
-		this.atendeCategoriaInferior = atendeCategoriaInferior;
-	}
-
-	public boolean isBagageiroGrande()
-	{
-		return bagageiroGrande;
-	}
-
-	public void setBagageiroGrande(boolean bagageiroGrande)
-	{
-		this.bagageiroGrande = bagageiroGrande;
-	}
 	//endregion
 }

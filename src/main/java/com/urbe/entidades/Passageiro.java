@@ -4,13 +4,27 @@ public class Passageiro
 {
 	private String cpf;
 	private String nome;
+	private FormaPagamento formaPagamento;
 	private int somaAvaliacoes;
 	private int qtdAvaliacoes;
 
-	public Passageiro(String cpf, String nome, int somaAvaliacoes, int qtdAvaliacoes)
+	public static Passageiro novoPassageiro(String cpf, String nome, FormaPagamento formaPagamento)
+	{
+		final int avaliacaoInicial = 8;
+		final int nroAvaliacoesInicial = 1;
+		return new Passageiro(cpf, nome, formaPagamento, avaliacaoInicial, nroAvaliacoesInicial);
+	}
+
+	public static Passageiro novoPassageiroSalvo(String cpf, String nome, FormaPagamento formaPagamento, int somaAvaliacoes, int qtdAvaliacoes)
+	{
+		return new Passageiro(cpf, nome, formaPagamento, somaAvaliacoes, qtdAvaliacoes);
+	}
+
+	private Passageiro(String cpf, String nome, FormaPagamento formaPagamento, int somaAvaliacoes, int qtdAvaliacoes)
 	{
 		this.cpf = cpf;
 		this.nome = nome;
+		this.formaPagamento = formaPagamento;
 		this.somaAvaliacoes = somaAvaliacoes;
 		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
