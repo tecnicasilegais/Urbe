@@ -5,6 +5,7 @@ import java.time.LocalTime;
 public class Viagem
 {
 	private int id;
+	private Cidade cidade;
 	private LocalTime hora;
 	private Bairro origem;
 	private Bairro destino;
@@ -12,8 +13,9 @@ public class Viagem
 	private Passageiro passageiro;
 	private double custo;
 
-	public Viagem(Bairro origem, Bairro destino, Motorista motorista, Passageiro passageiro, double custo)
+	public Viagem(Cidade cidade, Bairro origem, Bairro destino, Motorista motorista, Passageiro passageiro, double custo)
 	{
+		this.cidade = cidade;
 		this.origem = origem;
 		this.destino = destino;
 		this.motorista = motorista;
@@ -41,6 +43,10 @@ public class Viagem
 	{
 		this.hora = hora;
 	}
+
+	public Cidade getCidade() {return cidade;}
+
+	public void setCidade(Cidade cidade) {this.cidade = cidade; }
 
 	public Bairro getOrigem()
 	{
