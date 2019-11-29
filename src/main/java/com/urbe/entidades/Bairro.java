@@ -19,7 +19,6 @@ public class Bairro
 	 */
 	public static Bairro criaBairroQuadrado(String nome, Ponto p1, int tamanhoLado, double custo)
 	{
-		//TODO: criacao de bairros
 		Area a = new Area(p1, new Ponto(p1.getX() + tamanhoLado, p1.getY() - tamanhoLado));
 		return new Bairro(nome, a, custo);
 	}
