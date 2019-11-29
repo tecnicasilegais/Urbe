@@ -56,6 +56,10 @@ public class Bairro
 		return nome;
 	}
 
+	/**
+	 * Retorna a área do Bairro.
+	 * @return variavel contendo a área do bairro
+	 */
 	public Area getLimites()
 	{
 		return limites;
