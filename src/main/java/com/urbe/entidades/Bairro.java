@@ -9,11 +9,31 @@ public class Bairro
 	private Area limites;
 	private int custoBase;
 
+	/**
+	 * Método responsável por criar uma instância de bairro com formato quadrado.
+	 * @param nome nome do bairro a ser criado
+	 * @param p1 Ponto central do bairro
+	 * @param tamanhoLado tamanho dos lados do bairro
+	 * @param custo custo a ser adicionado em viagens que passam pelo bairro
+	 * @return uma nova instância de bairro com área quadrada
+	 */
 	public static Bairro criaBairroQuadrado(String nome, Ponto p1, int tamanhoLado, int custo)
 	{
 		//TODO: criacao de bairros
 		Area a = new Area(p1, new Ponto(p1.getX() + tamanhoLado, p1.getY() - tamanhoLado));
 		return new Bairro(nome, a, custo);
+	}
+
+	/**
+	 * Método responsável por criar uma instância de bairro retangular comum.
+	 * @param nome nome do bairro a ser criado
+	 * @param limites area do bairro
+	 * @param custo custo a ser adicionado em viagens que passam pelo bairro
+	 * @return
+	 */
+	public static Bairro criaBairroRetangular(String nome, Area limites, int custo)
+	{
+		return new Bairro(nome, limites, custo);
 	}
 
 	private Bairro(String nome, Area limites, int custoBase)
