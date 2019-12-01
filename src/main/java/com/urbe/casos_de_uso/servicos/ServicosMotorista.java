@@ -4,6 +4,7 @@ import com.urbe.casos_de_uso.repositorios.IRepositorioMotoristas;
 import com.urbe.casos_de_uso.repositorios.IRepositorioViagens;
 import com.urbe.entidades.Motorista;
 import com.urbe.entidades.Passageiro;
+import com.urbe.entidades.Retorno;
 import com.urbe.entidades.Viagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,16 +24,18 @@ public class ServicosMotorista
 		this.viagens = viagens;
 	}
 
-	public Motorista recuperarDadosMotorista(String cpf)
+	public Retorno<Motorista> obterDadosMotorista(String cpf)
 	{
-		Motorista motorista = motoristas.obterPorCpf(cpf);
-		if (motorista == null) {throw new IllegalArgumentException("Motorista inexistente: " + cpf);}
-		return motorista;
+		return motoristas.obterPorCpf(cpf);
 	}
 
-	public List<Viagem> recuperarViagensMotorista(String cpf)
+	public Retorno<List<Viagem>> obterViagensMotorista(String cpf)
 	{
-		return null;
+		Retorno<List<Viagem>> retornoViagens = viagens.obterViagens(motoristas.obterPorCpf(cpf));
+		if (!retornoViagens.ok())
+		{
+
+		}
 	}
 
 	public Passageiro avaliarPassageiro(String cpf, int avaliacao)

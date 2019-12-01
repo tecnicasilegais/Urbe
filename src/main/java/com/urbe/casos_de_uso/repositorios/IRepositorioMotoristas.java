@@ -1,10 +1,11 @@
 package com.urbe.casos_de_uso.repositorios;
 
 import com.urbe.entidades.Motorista;
+import com.urbe.entidades.Retorno;
 
 public interface IRepositorioMotoristas
 {
-	Motorista obterPorNome(String nome);
+	Retorno<Motorista> obterPorNome(String nome);
 
-	Motorista obterPorCpf(String cpf);
+	Retorno<Motorista> obterPorCpf(String cpf);
 }

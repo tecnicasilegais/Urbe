@@ -1,10 +1,11 @@
 package com.urbe.casos_de_uso.repositorios;
 
 import com.urbe.entidades.Passageiro;
+import com.urbe.entidades.Retorno;
 
 public interface IRepositorioPassageiros
 {
-	Passageiro obterPorCpf(String cpf);
+	Retorno<Passageiro> obterPorCpf(String cpf);
 
-	void atualizaPassageiro(Passageiro passageiro);
+	Retorno atualizarPassageiro(Passageiro passageiro);
 }

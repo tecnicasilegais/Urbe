@@ -1,13 +1,14 @@
 package com.urbe.casos_de_uso.repositorios;
 
 import com.urbe.entidades.Motorista;
+import com.urbe.entidades.Retorno;
 import com.urbe.entidades.Viagem;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public interface IRepositorioViagens
 {
-	void cadastrarViagem(Viagem viagem);
+	Retorno cadastrarViagem(Viagem viagem);
 
-	Stream<Viagem> obterViagens(Motorista motorista);
+	Retorno<List<Viagem>> obterViagens(Retorno<Motorista> motorista);
 }

@@ -3,8 +3,7 @@ package com.urbe.casos_de_uso.servicos;
 import com.urbe.casos_de_uso.repositorios.IRepositorioBairros;
 import com.urbe.casos_de_uso.repositorios.IRepositorioCidades;
 import com.urbe.casos_de_uso.repositorios.IRepositorioPassageiros;
-import com.urbe.entidades.Cidade;
-import com.urbe.entidades.Viagem;
+import com.urbe.entidades.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,9 +27,9 @@ public class ServicosPassageiro
 
 	public Viagem criarViagem(String cpf, String bairroOrigem, String bairroDestino, String formaPagamento, String categoriaVeiculo)
 	{
-		//Passageiro passageiro = passageiros.obterPorCpf(cpf);
-		Cidade cidade = cidades.obterPorNome("POO");
-		//Motorista motorista = motoristas.recuperaPorNome("Marcelo");
+		Retorno<Passageiro> passageiro = passageiros.obterPorCpf(cpf);
+		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
+		Motorista motorista = motoristas.("Marcelo");
 		return null;
 	}
 

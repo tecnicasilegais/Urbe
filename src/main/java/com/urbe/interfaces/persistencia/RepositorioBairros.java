@@ -2,6 +2,7 @@ package com.urbe.interfaces.persistencia;
 
 import com.urbe.casos_de_uso.repositorios.IRepositorioBairros;
 import com.urbe.entidades.Bairro;
+import com.urbe.entidades.Retorno;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -19,9 +20,9 @@ public class RepositorioBairros implements IRepositorioBairros
 	}
 
 	@Override
-	public Bairro obterPorNome(String nomeBairro)
+	public Retorno<Bairro> obterPorNome(String nomeBairro)
 	{
-		Bairro bairro = bairros.get(nomeBairro);
+		Retorno<Bairro> bairro = bairros.get(nomeBairro);
 		if (bairro == null) { throw new IllegalArgumentException("Bairro inexistente: " + nomeBairro); }
 		return bairro;
 	}

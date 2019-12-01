@@ -2,22 +2,23 @@ package com.urbe.interfaces.persistencia;
 
 import com.urbe.casos_de_uso.repositorios.IRepositorioViagens;
 import com.urbe.entidades.Motorista;
+import com.urbe.entidades.Retorno;
 import com.urbe.entidades.Viagem;
 import org.springframework.stereotype.Component;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 @Component
 public class RepositorioViagens implements IRepositorioViagens
 {
 	@Override
-	public void cadastrarViagem(Viagem viagem)
+	public Retorno cadastrarViagem(Viagem viagem)
 	{
-
+		return null;
 	}
 
 	@Override
-	public Stream<Viagem> obterViagens(Motorista motorista)
+	public Retorno<List<Viagem>> obterViagens(Retorno<Motorista> motorista)
 	{
 		return null;
 	}

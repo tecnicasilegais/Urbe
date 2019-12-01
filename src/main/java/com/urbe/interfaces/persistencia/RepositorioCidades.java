@@ -2,6 +2,7 @@ package com.urbe.interfaces.persistencia;
 
 import com.urbe.casos_de_uso.repositorios.IRepositorioCidades;
 import com.urbe.entidades.Cidade;
+import com.urbe.entidades.Retorno;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -20,9 +21,9 @@ public class RepositorioCidades implements IRepositorioCidades
 	}
 
 	@Override
-	public Cidade obterPorNome(String nomeCidade)
+	public Retorno<Cidade> obterPorNome(String nomeCidade)
 	{
-		Cidade cidade = cidades.get(nomeCidade);
+		Retorno<Cidade> cidade = cidades.get(nomeCidade);
 		if (cidade == null) {throw new IllegalArgumentException("Cidade inexistente: " + nomeCidade); }
 		return cidade;
 	}
