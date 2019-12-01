@@ -52,41 +52,74 @@ public class Motorista
 	}
 
 	// region Getters/Setters
+	/**
+	 * Retorna a media de pontuação do motorista (de 0 a 10)
+	 * @return double contendo a media de pontuação
+	 */
 	public double pontuacaoMedia()
 	{
 		return this.somaAvaliacoes / this.qtdAvaliacoes;
 	}
 
+	/**
+	 * Retorna o cpf do motorista
+	 * @return String contendo o cpf
+	 */
 	public String cpf()
 	{
 		return cpf;
 	}
 
+	/**
+	 * Retorna o nome do motorista
+	 * @return String contendo o nome
+	 */
 	public String nome()
 	{
 		return nome;
 	}
 
+	/**
+	 * Retorna a soma das avaliações recebidas pelo motorista
+	 * @return long contendo a soma das avaliações
+	 */
 	public long somaAvaliacoes()
 	{
 		return somaAvaliacoes;
 	}
 
+	/**
+	 * Retorna a quantidade de avaliações que o motorista recebeu
+	 * @return long contendo a quantidade de avaliações
+	 */
 	public long qtdAvaliacoes()
 	{
 		return qtdAvaliacoes;
 	}
 
+	/**
+	 * Retorna o Veiculo que o motorista utiliza
+	 * @return Veiculo
+	 */
 	public Veiculo veiculo()
 	{
 		return veiculo;
 	}
 
+	/**
+	 * Retorna as formas de pagamento que o motorista aceita
+	 * @return Set de FormaPagamento contendo as formas aceitas
+	 */
 	public Set<FormaPagamento> formasPagamento()
 	{
 		return formasPagamento;
 	}
 
+	/**
+	 * Avalia o motorista referente à uma viagem realizada
+	 * @param pontuacao pontuação avaliada
+	 * @throws IllegalArgumentException caso o numero não seja de 0 a 10
+	 */
 	public void avalia (int pontuacao)
 	{
 		if (!(pontuacao > 0 && pontuacao < 10))
