@@ -18,7 +18,7 @@ public class Bairro
 	// region Getters/Setters
 
 	/**
-	 * Método responsável por informar o nome do Bairro.
+	 * Retorna uma String contendo o nome do Bairro.
 	 * @return String contendo o nome
 	 */
 	public String nome()

@@ -2,8 +2,13 @@ package com.urbe.entidades;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.urbe.entidades.geometria.Reta;
+import com.urbe.entidades.geometria.SituacaoReta;
 
 public class Cidade
 {
@@ -27,8 +32,9 @@ public class Cidade
 	}
 
 	// region Getters/Setters
+
 	/**
-	 * Método responsável por retornar o nome da cidade
+	 * Retorna uma String contendo o nome da cidade
 	 * @return nome da cidade
 	 */
 	public String nome()
@@ -37,7 +43,7 @@ public class Cidade
 	}
 
 	/**
-	 * Método responsável por retornar um bairro específico da cidade
+	 * Retorna uma instância de Bairro referente ao bairro específico da cidade
 	 * @param nome nome do bairro
 	 * @return Bairro cujo nome foi informado ou null caso não haja um bairro com esse nome
 	 */
@@ -47,16 +53,37 @@ public class Cidade
 	}
 
 	/**
-	 * 
+	 * Registra um bairro na cidade referente
 	 */
 	public void regBairro (Bairro bairro)
 	{
-		bairros.put(bairro.getNome(), bairro);
+		bairros.put(bairro.nome(), bairro);
 	}
 
+	/**
+	 * Lista todos nomes de bairros presentes nesta cidade
+	 * @return Collection de String contendo os nomes dos bairros.
+	 */
 	public Collection<String> listarNomesBairros()
 	{
 		return bairros.keySet();
+	}
+
+	/**
+	 * Lista todos Bairros percorridos pela Reta recebida
+	 * @param rota rota percorrida
+	 * @return	List de Bairros contendo os bairros percorridos pela Reta.
+	 */
+	public List<Bairro> bairrosPercorridos(Reta rota)
+	{
+		List<Bairro> caminho = 
+			bairros
+			.values()
+			.stream()
+			.filter(bairro -> bairro.limites().classifica(rota) == SituacaoReta.TODA_FORA )
+			.collect(Collectors.toList());
+
+		return caminho;
 	}
 
 	//endregion
