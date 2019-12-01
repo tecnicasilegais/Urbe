@@ -25,6 +25,13 @@ public class Area
 		}
 	}
 
+	public Ponto pontoCentral()
+	{
+		int x = Math.floorDiv(Math.abs(xMax-xMin), 2);
+		int y = Math.floorDiv(Math.abs(yMax-yMin), 2);
+		return new Ponto(x,y);
+	}
+
 	public SituacaoReta classifica(Reta reta)
 	{
 		SituacaoReta situacao = INTERSECTA;
