@@ -1,36 +1,58 @@
 package com.urbe.entidades;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Motorista
 {
 	private String cpf;
 	private String nome;
-	private int somaAvaliacoes;
-	private int qtdAvaliacoes;
+	private long somaAvaliacoes;
+	private long qtdAvaliacoes;
 	private Veiculo veiculo;
-	private FormaPagamento formaPagamento;
+	private Set<FormaPagamento> formasPagamento;
 
-	public Motorista(String cpf, String nome, Veiculo veiculo, FormaPagamento formaPagamento)
+	/**
+	 * Construtor para um novo motorista.
+	 * @param cpf String contendo cpf do motorista
+	 * @param nome String contendo nome do motorista
+	 * @param veiculo Veiculo do motorista
+	 * @param formasPagamento Lista contendo as formas de pagamento que o motorista aceita
+	 * @return Uma instância de motorista
+	 */
+	public static Motorista novoMotorista(String cpf, String nome, Veiculo veiculo, List<FormaPagamento> formasPagamento)
 	{
-		this.cpf = cpf;
-		this.nome = nome;
-		this.somaAvaliacoes = 0;
-		this.qtdAvaliacoes = 0;
-		this.veiculo = veiculo;
-		this.formaPagamento = formaPagamento;
+		return new Motorista(cpf, nome, veiculo, new HashSet<FormaPagamento>(formasPagamento),8,1);
 	}
 
-	public Motorista(String cpf, String nome, int somaAvaliacoes, int qtdAvaliacoes, Veiculo veiculo, FormaPagamento formaPagamento)
+	/**
+	 * Construtor para um motorista existente na base de dados
+	 * @param cpf String contendo cpf do motorista
+	 * @param nome String contendo nome do motorista
+	 * @param somaAvaliacoes soma das avaliações recebidas pelo motorista
+	 * @param qtdAvaliacoes quantidade de avaliações que o motorista ja recebeu
+	 * @param veiculo Veiculo do motorista
+	 * @param formasPagamento Lista contendo as formas de pagamento que o motorista aceita
+	 * @return Uma instância de motorista
+	 */
+	public static Motorista motoristaExistente(String cpf, String nome, long somaAvaliacoes, long qtdAvaliacoes, Veiculo veiculo, List<FormaPagamento> formasPagamento)
+	{
+		return new Motorista(cpf, nome, veiculo, new HashSet<FormaPagamento>(formasPagamento), somaAvaliacoes, qtdAvaliacoes);
+	}
+
+	private Motorista(String cpf, String nome, Veiculo veiculo, Set<FormaPagamento> formasPagamento, long somaAvaliacoes, long qtdAvaliacoes)
 	{
 		this.cpf = cpf;
 		this.nome = nome;
 		this.somaAvaliacoes = somaAvaliacoes;
 		this.qtdAvaliacoes = qtdAvaliacoes;
 		this.veiculo = veiculo;
-		this.formaPagamento = formaPagamento;
+		this.formasPagamento = formasPagamento;
 	}
 
 	// region Getters/Setters
-	public double nota()
+	public double pontuacaoMedia()
 	{
 		return this.somaAvaliacoes / this.qtdAvaliacoes;
 	}
@@ -40,39 +62,19 @@ public class Motorista
 		return cpf;
 	}
 
-	public void cpf(String cpf)
-	{
-		this.cpf = cpf;
-	}
-
 	public String nome()
 	{
 		return nome;
 	}
 
-	public void nome(String nome)
-	{
-		this.nome = nome;
-	}
-
-	public int somaAvaliacoes()
+	public long somaAvaliacoes()
 	{
 		return somaAvaliacoes;
 	}
 
-	public void somaAvaliacoes(int somaAvaliacoes)
-	{
-		this.somaAvaliacoes = somaAvaliacoes;
-	}
-
-	public int qtdAvaliacoes()
+	public long qtdAvaliacoes()
 	{
 		return qtdAvaliacoes;
-	}
-
-	public void qtdAvaliacoes(int qtdAvaliacoes)
-	{
-		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
 
 	public Veiculo veiculo()
@@ -80,20 +82,25 @@ public class Motorista
 		return veiculo;
 	}
 
-	public void veiculo(Veiculo veiculo)
+	public Set<FormaPagamento> formasPagamento()
 	{
-		this.veiculo = veiculo;
+		return formasPagamento;
 	}
 
-	public FormaPagamento formaPagamento()
+	public void avalia (int pontuacao)
 	{
-		return formaPagamento;
-	}
-
-	public void formaPagamento(FormaPagamento formaPagamento)
-	{
-		this.formaPagamento = formaPagamento;
+		if (!(pontuacao > 0 && pontuacao < 10))
+		{
+			throw new IllegalArgumentException("Pontuação inválida ! Deve ser uma pontuação de 0 a 10.");
+		}
+		somaAvaliacoes += pontuacao;
+		qtdAvaliacoes++;
 	}
 
 	//endregion
+	@Override
+	public String toString()
+	{
+		return "Motorista: \n	nome: "+nome+"\n	cpf: "+cpf+"\n pontuação: "+ this.pontuacaoMedia();
+	}
 }

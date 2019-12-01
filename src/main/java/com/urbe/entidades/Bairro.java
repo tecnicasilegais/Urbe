@@ -59,6 +59,6 @@ public class Bairro
 
 	@Override
 	public String toString() {
-		return "Bairro [area=" + limites + ", nome=" + nome + "]";
+		return "Bairro: \n [ nome=" + nome + ", área = " + limites +"]";
 	}
 }
