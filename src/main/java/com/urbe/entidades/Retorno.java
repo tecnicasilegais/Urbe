@@ -20,6 +20,14 @@ public class Retorno<E>
 		this.dados = dados;
 	}
 
+	public Retorno(E dados, String mensagem)
+	{
+		if (dados == null){
+			this.ok = false;
+		}
+		this.dados = dados;
+		this.mensagem = mensagem;
+	}
 	public boolean ok()
 	{
 		return this.ok;

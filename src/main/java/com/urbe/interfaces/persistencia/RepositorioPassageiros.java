@@ -15,8 +15,8 @@ public class RepositorioPassageiros implements IRepositorioPassageiros
 	}
 
 	@Override
-	public void atualizarPassageiro(Passageiro passageiro)
+	public Retorno<Boolean> atualizarPassageiro(Passageiro passageiro)
 	{
-
+		return new Retorno<Boolean>(true, true, "");
 	}
 }

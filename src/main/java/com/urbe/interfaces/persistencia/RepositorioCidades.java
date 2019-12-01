@@ -23,8 +23,8 @@ public class RepositorioCidades implements IRepositorioCidades
 	@Override
 	public Retorno<Cidade> obterPorNome(String nomeCidade)
 	{
-		Retorno<Cidade> cidade = cidades.get(nomeCidade);
-		if (cidade == null) {throw new IllegalArgumentException("Cidade inexistente: " + nomeCidade); }
-		return cidade;
+		Cidade cidade = cidades.get(nomeCidade);
+		Retorno<Cidade> retorno = new Retorno<>(cidade,"");
+		return retorno;
 	}
 }
