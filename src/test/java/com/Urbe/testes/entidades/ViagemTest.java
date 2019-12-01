@@ -17,11 +17,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,7 +34,7 @@ public class ViagemTest
     private Area a1,a2;
     LocalDateTime tm;
     private Bairro b1,b2;
-    private Reta ret, ret2;
+    private Reta ret;
 
 	@BeforeEach
 	public void setup()
@@ -59,7 +56,6 @@ public class ViagemTest
         b2 = new Bairro("bairro tbm normal", a2, 8);
 
         ret = new Reta(a1.pontoCentral(), a2.pontoCentral());
-        ret2 = new Reta(a2.pontoCentral(), a1.pontoCentral());
 
         tm = LocalDateTime.now();
 
