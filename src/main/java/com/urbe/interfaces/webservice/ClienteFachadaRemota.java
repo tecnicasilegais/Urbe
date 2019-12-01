@@ -5,8 +5,12 @@ import com.urbe.entidades.TOViagem;
 import com.urbe.entidades.Viagem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/urbe")
 public class ClienteFachadaRemota
 {
 	private ServicosPassageiro servicosPassageiro;
@@ -17,7 +21,7 @@ public class ClienteFachadaRemota
 		this.servicosPassageiro = servicosPassageiro;
 	}
 
-	@GetMapping("/solicitacaoviagem")
+	@GetMapping("/solicitarviagem")
 	public TOViagem dadosViagem(@RequestParam String cpf,
 	                            @RequestParam String bOrig,
 	                            @RequestParam String bDest,
@@ -34,6 +38,7 @@ public class ClienteFachadaRemota
 		return toViagem;
 	}
 
+	@GetMapping("/avaliarmotorista")
 	public Boolean dadosViagem(@RequestParam String cpfMotorista,
 	                           @RequestParam int avaliacaoMotorista)
 	{

@@ -2,10 +2,10 @@ package com.urbe.casos_de_uso.servicos;
 
 import com.urbe.casos_de_uso.repositorios.IRepositorioBairros;
 import com.urbe.casos_de_uso.repositorios.IRepositorioCidades;
-import com.urbe.entidades.Bairro;
+import com.urbe.casos_de_uso.repositorios.IRepositorioPassageiros;
+import com.urbe.entidades.Cidade;
+import com.urbe.entidades.Passageiro;
 import com.urbe.entidades.Viagem;
-import com.urbe.interfaces.persistencia.RepositorioBairros;
-import com.urbe.interfaces.persistencia.RepositorioCidades;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,20 +14,21 @@ public class ServicosPassageiro
 {
 	private IRepositorioCidades cidades;
 	private IRepositorioBairros bairros;
+	private IRepositorioPassageiros passageiros;
 
 	@Autowired
-	public ServicosPassageiro(RepositorioCidades cidades, RepositorioBairros bairros)
+	public ServicosPassageiro(IRepositorioCidades cidades, IRepositorioBairros bairros, IRepositorioPassageiros passageiros,)
 	{
 		this.cidades = cidades;
 		this.bairros = bairros;
+		this.passageiros = passageiros;
 	}
 
 	public Viagem criarViagem(String cpf, String bairroOrigem, String bairroDestino, String formaPagamento, String categoriaVeiculo)
 	{
-		Bairro bOrigem;
-		Bairro bDestino;
-		Viagem viagem;
-		return new Viagem(null, null, null, null, null, 0.0);
+		Passageiro passageiro = passageiros.recuperaPorCpf(cpf);
+		Cidade cidade = cidades.recuperaPorNome("POO");
+		//Motorista motorista = motoristas.recuperaPorNome("Marcelo");
 	}
 
 	public Boolean avaliarMotorista(String cpfMotorista, int avaliacaoMotorista)
