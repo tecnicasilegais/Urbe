@@ -47,6 +47,7 @@ public class Bairro
 	/**
 	 * Altera o custo base do bairro
 	 * @param custoBase novo custo
+	 * @throws IllegalArgumentException caso o valor seja menor que 0
 	 */
 	public void mudaCustoBase(double custoBase)
 	{
