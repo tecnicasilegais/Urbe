@@ -19,7 +19,7 @@ public class RepositorioBairros implements IRepositorioBairros
 	}
 
 	@Override
-	public Bairro recuperaPorNome(String nomeBairro)
+	public Bairro obterPorNome(String nomeBairro)
 	{
 		Bairro bairro = bairros.get(nomeBairro);
 		if (bairro == null) { throw new IllegalArgumentException("Bairro inexistente: " + nomeBairro); }

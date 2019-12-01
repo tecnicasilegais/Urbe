@@ -4,5 +4,5 @@ import com.urbe.entidades.Bairro;
 
 public interface IRepositorioBairros
 {
-	Bairro recuperaPorNome(String nomeBairro);
+	Bairro obterPorNome(String nomeBairro);
 }

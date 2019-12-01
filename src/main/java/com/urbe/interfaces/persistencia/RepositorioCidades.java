@@ -20,7 +20,7 @@ public class RepositorioCidades implements IRepositorioCidades
 	}
 
 	@Override
-	public Cidade recuperaPorNome(String nomeCidade)
+	public Cidade obterPorNome(String nomeCidade)
 	{
 		Cidade cidade = cidades.get(nomeCidade);
 		if (cidade == null) {throw new IllegalArgumentException("Cidade inexistente: " + nomeCidade); }

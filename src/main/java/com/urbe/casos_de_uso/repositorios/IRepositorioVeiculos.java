@@ -4,5 +4,5 @@ import com.urbe.entidades.Veiculo;
 
 public interface IRepositorioVeiculos
 {
-	Veiculo recuperaPorPlaca(String placa);
+	Veiculo obterPorPlaca(String placa);
 }

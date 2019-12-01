@@ -4,7 +4,7 @@ import com.urbe.entidades.Passageiro;
 
 public interface IRepositorioPassageiros
 {
-	Passageiro recuperaPorCpf(String cpf);
+	Passageiro obterPorCpf(String cpf);
 
 	void atualizaPassageiro(Passageiro passageiro);
 }

@@ -28,6 +28,7 @@ public class ClienteFachadaRemota
 	                            @RequestParam String formaPgto,
 	                            @RequestParam String catVeiculo)
 	{
+		
 		Viagem viagem = servicosPassageiro.criarViagem(cpf, bOrig, bDest, formaPgto, catVeiculo);
 		TOViagem toViagem = new TOViagem();
 		toViagem.custoCorrida(viagem.custo());
