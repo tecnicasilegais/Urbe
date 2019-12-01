@@ -5,7 +5,7 @@ import com.urbe.entidades.Viagem;
 
 import java.util.stream.Stream;
 
-public interface RepositorioViagens
+public interface IRepositorioViagens
 {
 	void cadastrarViagem(Viagem viagem);
 
