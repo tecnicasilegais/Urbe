@@ -15,7 +15,7 @@ public class VeiculoNormal extends Veiculo
 		return atendeCategoriaInferior;
 	}
 
-	public void setAtendeCategoriaInferior(boolean atendeInferior)
+	public void atendeCategoriaInferior(boolean atendeInferior)
 	{
 		this.atendeCategoriaInferior = atendeInferior;
 	}

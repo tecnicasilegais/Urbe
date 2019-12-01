@@ -24,76 +24,76 @@ public class Viagem
 	}
 
 	// region Getters/Setters
-	public int getId()
+	public int id()
 	{
 		return id;
 	}
 
-	public void setId(int id)
+	public void id(int id)
 	{
 		this.id = id;
 	}
 
-	public LocalTime getHora()
+	public LocalTime hora()
 	{
 		return hora;
 	}
 
-	public void setHora(LocalTime hora)
+	public void hora(LocalTime hora)
 	{
 		this.hora = hora;
 	}
 
-	public Cidade getCidade() {return cidade;}
+	public Cidade cidade() {return cidade;}
 
-	public void setCidade(Cidade cidade) {this.cidade = cidade; }
+	public void cidade(Cidade cidade) {this.cidade = cidade; }
 
-	public Bairro getOrigem()
+	public Bairro origem()
 	{
 		return origem;
 	}
 
-	public void setOrigem(Bairro origem)
+	public void origem(Bairro origem)
 	{
 		this.origem = origem;
 	}
 
-	public Bairro getDestino()
+	public Bairro destino()
 	{
 		return destino;
 	}
 
-	public void setDestino(Bairro destino)
+	public void destino(Bairro destino)
 	{
 		this.destino = destino;
 	}
 
-	public Motorista getMotorista()
+	public Motorista motorista()
 	{
 		return motorista;
 	}
 
-	public void setMotorista(Motorista motorista)
+	public void motorista(Motorista motorista)
 	{
 		this.motorista = motorista;
 	}
 
-	public Passageiro getPassageiro()
+	public Passageiro passageiro()
 	{
 		return passageiro;
 	}
 
-	public void setPassageiro(Passageiro passageiro)
+	public void passageiro(Passageiro passageiro)
 	{
 		this.passageiro = passageiro;
 	}
 
-	public double getCusto()
+	public double custo()
 	{
 		return custo;
 	}
 
-	public void setCusto(double custo)
+	public void custo(double custo)
 	{
 		this.custo = custo;
 	}

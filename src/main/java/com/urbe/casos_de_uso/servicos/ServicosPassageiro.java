@@ -7,12 +7,14 @@ public class ServicosPassageiro
 {
 	public Viagem criarViagem(String cpf, String bairroOrigem, String bairroDestino, String formaPagamento, String categoriaVeiculo)
 	{
-		Bairro bOrigem = new Bairro();
-		Bairro bDestino = new Bairro();
-		Viagem viagem = new Viagem();
+		Bairro bOrigem;
+		Bairro bDestino;
+		Viagem viagem;
+		return new Viagem(null, null, null, null, null, 0.0);
 	}
 
 	public Boolean avaliarMotorista(String cpfMotorista, int avaliacaoMotorista)
 	{
+		return false;
 	}
 }

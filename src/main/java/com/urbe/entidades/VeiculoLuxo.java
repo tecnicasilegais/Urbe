@@ -15,7 +15,7 @@ public class VeiculoLuxo extends VeiculoNormal
 		return bagageiroGrande;
 	}
 
-	public void setBagageiroGrande(boolean bagageiroGrande)
+	public void bagageiroGrande(boolean bagageiroGrande)
 	{
 		this.bagageiroGrande = bagageiroGrande;
 	}

@@ -30,67 +30,67 @@ public class Motorista
 	}
 
 	// region Getters/Setters
-	public double getNota()
+	public double nota()
 	{
 		return this.somaAvaliacoes / this.qtdAvaliacoes;
 	}
 
-	public String getCpf()
+	public String cpf()
 	{
 		return cpf;
 	}
 
-	public void setCpf(String cpf)
+	public void cpf(String cpf)
 	{
 		this.cpf = cpf;
 	}
 
-	public String getNome()
+	public String nome()
 	{
 		return nome;
 	}
 
-	public void setNome(String nome)
+	public void nome(String nome)
 	{
 		this.nome = nome;
 	}
 
-	public int getSomaAvaliacoes()
+	public int somaAvaliacoes()
 	{
 		return somaAvaliacoes;
 	}
 
-	public void setSomaAvaliacoes(int somaAvaliacoes)
+	public void somaAvaliacoes(int somaAvaliacoes)
 	{
 		this.somaAvaliacoes = somaAvaliacoes;
 	}
 
-	public int getQtdAvaliacoes()
+	public int qtdAvaliacoes()
 	{
 		return qtdAvaliacoes;
 	}
 
-	public void setQtdAvaliacoes(int qtdAvaliacoes)
+	public void qtdAvaliacoes(int qtdAvaliacoes)
 	{
 		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
 
-	public Veiculo getVeiculo()
+	public Veiculo veiculo()
 	{
 		return veiculo;
 	}
 
-	public void setVeiculo(Veiculo veiculo)
+	public void veiculo(Veiculo veiculo)
 	{
 		this.veiculo = veiculo;
 	}
 
-	public FormaPagamento getFormaPagamento()
+	public FormaPagamento formaPagamento()
 	{
 		return formaPagamento;
 	}
 
-	public void setFormaPagamento(FormaPagamento formaPagamento)
+	public void formaPagamento(FormaPagamento formaPagamento)
 	{
 		this.formaPagamento = formaPagamento;
 	}

@@ -14,17 +14,17 @@ public abstract class Veiculo
 	}
 
 	// region Getters/Setters
-	public String getPlaca()
+	public String placa()
 	{
 		return placa;
 	}
 
-	public String getMarca()
+	public String marca()
 	{
 		return marca;
 	}
 
-	public String getCor()
+	public String cor()
 	{
 		return cor;
 	}

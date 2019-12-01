@@ -18,12 +18,12 @@ public class Ponto
 	}
 
 	//region Getters/Setters
-	public int getX()
+	public int x()
 	{
 		return x;
 	}
 
-	public int getY()
+	public int y()
 	{
 		return y;
 	}

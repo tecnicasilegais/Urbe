@@ -7,42 +7,42 @@ public class TOViagem
 	private String nomeMotorista;
 	private String placaVeiculo;
 
-	public double getCustoCorrida()
+	public double custoCorrida()
 	{
 		return custoCorrida;
 	}
 
-	public void setCustoCorrida(double custoCorrida)
+	public void custoCorrida(double custoCorrida)
 	{
 		this.custoCorrida = custoCorrida;
 	}
 
-	public String getMarcaModelo()
+	public String marcaModelo()
 	{
 		return marcaModelo;
 	}
 
-	public void setMarcaModelo(String marcaModelo)
+	public void marcaModelo(String marcaModelo)
 	{
 		this.marcaModelo = marcaModelo;
 	}
 
-	public String getNomeMotorista()
+	public String nomeMotorista()
 	{
 		return nomeMotorista;
 	}
 
-	public void setNomeMotorista(String nomeMotorista)
+	public void nomeMotorista(String nomeMotorista)
 	{
 		this.nomeMotorista = nomeMotorista;
 	}
 
-	public String getPlacaVeiculo()
+	public String placaVeiculo()
 	{
 		return placaVeiculo;
 	}
 
-	public void setPlacaVeiculo(String placaVeiculo)
+	public void placaVeiculo(String placaVeiculo)
 	{
 		this.placaVeiculo = placaVeiculo;
 	}

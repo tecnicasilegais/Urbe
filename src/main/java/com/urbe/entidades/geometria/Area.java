@@ -10,7 +10,7 @@ public class Area
 
 	public Area(Ponto pSupEsq, Ponto pInfDir)
 	{
-		if ((pSupEsq.getX() >= pInfDir.getX()) || (pSupEsq.getY() <= pInfDir.getY()))
+		if ((pSupEsq.x() >= pInfDir.x()) || (pSupEsq.y() <= pInfDir.y()))
 		{
 			throw new IllegalArgumentException("O retangulo deve ser definido pela diagonal principal");
 		}
@@ -18,18 +18,18 @@ public class Area
 		{
 			this.pSupEsq = pSupEsq;
 			this.pInfDir = pInfDir;
-			this.yMin = pInfDir.getY();
-			this.yMax = pSupEsq.getY();
-			this.xMin = pSupEsq.getX();
-			this.xMax = pInfDir.getX();
+			this.yMin = pInfDir.y();
+			this.yMax = pSupEsq.y();
+			this.xMin = pSupEsq.x();
+			this.xMax = pInfDir.x();
 		}
 	}
 
 	public SituacaoReta classifica(Reta reta)
 	{
 		SituacaoReta situacao = INTERSECTA;
-		int regiaoP1 = getRegiao(reta.getP1());
-		int regiaoP2 = getRegiao(reta.getP2());
+		int regiaoP1 = regiao(reta.p1());
+		int regiaoP2 = regiao(reta.p2());
 
 		if (regiaoP1 == 0 && regiaoP2 == 0)
 		{
@@ -42,15 +42,15 @@ public class Area
 		return situacao;
 	}
 
-	public int getRegiao(Ponto ponto)
+	public int regiao(Ponto ponto)
 	{
 		int regiao = 0; //Dentro
 
-		if (ponto.getX() < xMin) { regiao += ESQUERDA.value; }
-		else if (ponto.getX() > xMax) { regiao += DIREITA.value; }
+		if (ponto.x() < xMin) { regiao += ESQUERDA.value; }
+		else if (ponto.x() > xMax) { regiao += DIREITA.value; }
 
-		if (ponto.getY() < yMin) { regiao += ABAIXO.value; }
-		else if (ponto.getY() > yMax) { regiao += ACIMA.value; }
+		if (ponto.y() < yMin) { regiao += ABAIXO.value; }
+		else if (ponto.y() > yMax) { regiao += ACIMA.value; }
 
 		return regiao;
 	}
@@ -62,12 +62,12 @@ public class Area
 	}
 
 	//region Getters/Setters
-	public Ponto getPSupEsq()
+	public Ponto pSupEsq()
 	{
 		return pSupEsq;
 	}
 
-	public Ponto getPInfDir()
+	public Ponto pInfDir()
 	{
 		return pInfDir;
 	}

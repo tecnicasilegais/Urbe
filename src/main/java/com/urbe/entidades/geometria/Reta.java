@@ -13,8 +13,8 @@ public class Reta
 	public double tamanho()
 	{
 		return Math.sqrt(
-				Math.pow(p2.getX() - p1.getX(), 2) +
-						Math.pow(p2.getY() - p1.getY(), 2));
+				Math.pow(p2.x() - p1.x(), 2) +
+						Math.pow(p2.y() - p1.y(), 2));
 	}
 
 	@Override
@@ -24,12 +24,12 @@ public class Reta
 	}
 
 	//region Getters/Setters
-	public Ponto getP1()
+	public Ponto p1()
 	{
 		return p1;
 	}
 
-	public Ponto getP2()
+	public Ponto p2()
 	{
 		return p2;
 	}

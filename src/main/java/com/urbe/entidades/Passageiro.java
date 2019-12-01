@@ -15,7 +15,7 @@ public class Passageiro
 		return new Passageiro(cpf, nome, formaPagamento, avaliacaoInicial, nroAvaliacoesInicial);
 	}
 
-	public static Passageiro novoPassageiroSalvo(String cpf, String nome, FormaPagamento formaPagamento, int somaAvaliacoes, int qtdAvaliacoes)
+	public static Passageiro novoPassageiroExistente(String cpf, String nome, FormaPagamento formaPagamento, int somaAvaliacoes, int qtdAvaliacoes)
 	{
 		return new Passageiro(cpf, nome, formaPagamento, somaAvaliacoes, qtdAvaliacoes);
 	}
@@ -29,48 +29,48 @@ public class Passageiro
 		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
 
-	// region Getters/Setters
-	public double getNota()
+	// region getters/setters
+	public double nota()
 	{
 		return this.somaAvaliacoes / this.qtdAvaliacoes;
 	}
 
-	public String getCpf()
+	public String cpf()
 	{
 		return cpf;
 	}
 
-	public void setCpf(String cpf)
+	public void cpf(String cpf)
 	{
 		this.cpf = cpf;
 	}
 
-	public String getNome()
+	public String nome()
 	{
 		return nome;
 	}
 
-	public void setNome(String nome)
+	public void nome(String nome)
 	{
 		this.nome = nome;
 	}
 
-	public int getSomaAvaliacoes()
+	public int somaAvaliacoes()
 	{
 		return somaAvaliacoes;
 	}
 
-	public void setSomaAvaliacoes(int somaAvaliacoes)
+	public void somaAvaliacoes(int somaAvaliacoes)
 	{
 		this.somaAvaliacoes = somaAvaliacoes;
 	}
 
-	public int getQtdAvaliacoes()
+	public int qtdAvaliacoes()
 	{
 		return qtdAvaliacoes;
 	}
 
-	public void setQtdAvaliacoes(int qtdAvaliacoes)
+	public void qtdAvaliacoes(int qtdAvaliacoes)
 	{
 		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
