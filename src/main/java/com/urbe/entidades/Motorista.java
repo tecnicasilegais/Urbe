@@ -132,6 +132,23 @@ public class Motorista
 
 	//endregion
 	@Override
+	public boolean equals(Object other){
+		if(this == other)
+			return true;
+
+		if (other == null || other.getClass() != this.getClass())
+			return false;
+
+		Motorista otherMotorista = (Motorista) other;
+
+		if (this.cpf.equals(otherMotorista.cpf)){
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
 	public String toString()
 	{
 		return "Motorista: \n	nome: "+nome+"\n	cpf: "+cpf+"\n pontuação: "+ this.pontuacaoMedia();

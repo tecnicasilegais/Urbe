@@ -118,6 +118,22 @@ public class Passageiro
 
 	//endregion
 	@Override
+	public boolean equals(Object other){
+		if(this == other)
+			return true;
+
+		if (other == null || other.getClass() != this.getClass())
+			return false;
+
+		Passageiro otherPassageiro = (Passageiro) other;
+
+		if (this.cpf.equals(otherPassageiro.cpf)){
+			return true;
+		}
+
+		return false;
+	}
+	@Override
 	public String toString()
 	{
 		return "Passageiro: \n	nome: "+nome+"\n	cpf: "+cpf+"\n pontuação: "+ this.pontuacaoMedia();
