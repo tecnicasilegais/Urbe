@@ -1,11 +1,7 @@
 package com.Urbe.testes.entidades;
 
 import com.urbe.entidades.FormaPagamento;
-import com.urbe.entidades.Motorista;
 import com.urbe.entidades.Passageiro;
-import com.urbe.entidades.Veiculo;
-import com.urbe.entidades.VeiculosFactory;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,10 +10,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.LinkedList;
-import java.util.List;
-
 
 public class PassageiroTest
 {
@@ -73,7 +65,7 @@ public class PassageiroTest
     @DisplayName("Testa forma pgto")
     @Test
     public void testaFormaPgto(){
-        assertTrue(pExistente.formaPagamento()==FormaPagamento.DINHEIRO;
+        assertTrue(pExistente.formaPagamento()==FormaPagamento.DINHEIRO);
     }
 
     @DisplayName("Testa avalia com sucesso")
