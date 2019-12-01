@@ -80,7 +80,7 @@ public class MotoristaTest
     @DisplayName("Testa Veiculo")
     @Test
     public void testaVeiculo(){
-        assertEquals("x12131231",mNovo.veiculo().placa())
+        assertEquals("x12131231",mNovo.veiculo().placa());
     }
 
     @DisplayName("Testa formas pgto")
