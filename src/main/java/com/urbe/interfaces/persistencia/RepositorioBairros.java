@@ -15,7 +15,7 @@ public class RepositorioBairros implements IRepositorioBairros
 	public RepositorioBairros()
 	{
 		bairros = new HashMap<>();
-
+		//FIXME Base access
 	}
 
 	@Override
