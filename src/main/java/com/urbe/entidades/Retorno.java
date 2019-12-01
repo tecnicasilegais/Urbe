@@ -13,7 +13,7 @@ public class Retorno<E>
 		this.dados = null;
 	}
 
-	public Retorno(boolean ok, String mensagem, E dados)
+	public Retorno(boolean ok, E dados, String mensagem)
 	{
 		this.ok = ok;
 		this.mensagem = mensagem;

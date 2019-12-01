@@ -22,8 +22,14 @@ public class RepositorioBairros implements IRepositorioBairros
 	@Override
 	public Retorno<Bairro> obterPorNome(String nomeBairro)
 	{
-		Retorno<Bairro> bairro = bairros.get(nomeBairro);
-		if (bairro == null) { throw new IllegalArgumentException("Bairro inexistente: " + nomeBairro); }
-		return bairro;
+		Bairro bairro = bairros.get(nomeBairro);
+		if (bairro == null)
+		{
+			return new Retorno<>(false, "Bairro inexistente: " + nomeBairro);
+		}
+		else
+		{
+			return new Retorno<>(true, bairro, "Sucesso");
+		}
 	}
 }
