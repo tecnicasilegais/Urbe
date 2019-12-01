@@ -22,9 +22,9 @@ public class BairroTest
 	@BeforeEach
 	public void setup()
 	{
-        p1 = new Ponto(10, 20);
-        a1 = new Area(p1, new Ponto(10, 10));
-        a2 = new Area(p1, new Ponto(10, 15));
+        p1 = new Ponto(10, 10);
+        a1 = new Area(p1, new Ponto(20, 20));
+        a2 = new Area(p1, new Ponto(20, 15));
         bairroPadraoTestes = new Bairro("teste", a1, 5.0);   
     }
     
@@ -32,13 +32,13 @@ public class BairroTest
     @Test
     public void testaNome(){
         Bairro bairro = new Bairro("teste", a2 , 5.0);
-        assertEquals("teste", bairro.getNome());
+        assertEquals("teste", bairro.nome());
     }
 
     @DisplayName("Testa Custo")
     @Test
     public void testaCusto(){
-        assertEquals(5.0, bairroPadraoTestes.getCustoBase());
+        assertEquals(5.0, bairroPadraoTestes.custoBase());
     }
 
 	@DisplayName("Testes muda custo")
@@ -53,8 +53,8 @@ public class BairroTest
     })
 	public void testaMudaCusto(double novoCusto)
 	{
-        bairroPadraoTestes.setCustoBase(novoCusto);
-        assertEquals(novoCusto, bairroPadraoTestes.getCustoBase());
+        bairroPadraoTestes.mudaCustoBase(novoCusto);
+        assertEquals(novoCusto, bairroPadraoTestes.custoBase());
     }
 
     @Test
