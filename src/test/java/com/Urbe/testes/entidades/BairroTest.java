@@ -60,7 +60,7 @@ public class BairroTest
     @Test
     @DisplayName("Testa Excecao Custo Negativo")
     public void testaExcecao(){
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> bairroPadraoTestes.setCustoBase(-1), "Didnt throw");
+        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> bairroPadraoTestes.mudaCustoBase(-1), "Didnt throw");
         assertTrue(thrown.getMessage().contains("Valor inválido"));    
     }
 
