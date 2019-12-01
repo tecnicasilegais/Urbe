@@ -1,7 +1,6 @@
 package com.urbe.entidades;
 
 import com.urbe.entidades.geometria.Area;
-import com.urbe.entidades.geometria.Ponto;
 
 public class Bairro
 {

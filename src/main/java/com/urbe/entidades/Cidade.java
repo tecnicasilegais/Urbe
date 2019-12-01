@@ -1,16 +1,24 @@
 package com.urbe.entidades;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Cidade
 {
 	private String nome;
-	private List bairro;
+	private Map<String,Bairro> bairros;
 
-	public Cidade(String nome, List bairro)
+	public static Cidade criaCidade(String nome)
+	{
+		return new Cidade(nome);
+	}
+
+	private Cidade(String nome)
 	{
 		this.nome = nome;
-		this.bairro = bairro;
+		this.bairros = new HashMap<String,Bairro>();
 	}
 
 	// region Getters/Setters
@@ -19,19 +27,19 @@ public class Cidade
 		return nome;
 	}
 
-	public void setNome(String nome)
+	public Bairro getBairro(String nome)
 	{
-		this.nome = nome;
+		return bairros.get(nome);
 	}
 
-	public List getBairro()
+	public void regBairro (Bairro bairro)
 	{
-		return bairro;
+		
 	}
 
-	public void setBairro(List bairro)
+	public Collection<String> listarNomesBairros()
 	{
-		this.bairro = bairro;
+		return bairros.keySet();
 	}
 
 	//endregion
