@@ -1,14 +1,23 @@
 package com.urbe.entidades;
 
-public class Retorno
+public class Retorno<E>
 {
 	private boolean ok;
 	private String mensagem;
+	private E dados;
 
 	public Retorno(boolean ok, String mensagem)
 	{
 		this.ok = ok;
 		this.mensagem = mensagem;
+		this.dados = null;
+	}
+
+	public Retorno(boolean ok, String mensagem, E dados)
+	{
+		this.ok = ok;
+		this.mensagem = mensagem;
+		this.dados = dados;
 	}
 
 	public boolean ok()
@@ -20,4 +29,6 @@ public class Retorno
 	{
 		return this.mensagem;
 	}
+
+	public E dados() {return this.dados;}
 }

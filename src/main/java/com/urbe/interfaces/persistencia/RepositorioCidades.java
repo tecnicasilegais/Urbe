@@ -12,7 +12,8 @@ public class RepositorioCidades implements IRepositorioCidades
 {
 	private Map<String, Cidade> cidades;
 
-	public RepositorioCidades(){
+	public RepositorioCidades()
+	{
 
 		cidades = new HashMap<>();
 		Cidade c = Cidade.criaCidade("POO");
@@ -21,5 +22,8 @@ public class RepositorioCidades implements IRepositorioCidades
 	@Override
 	public Cidade recuperaPorNome(String nomeCidade)
 	{
+		Cidade cidade = cidades.get(nomeCidade);
+		if (cidade == null) {throw new IllegalArgumentException("Cidade inexistente: " + nomeCidade); }
+		return cidade;
 	}
 }
