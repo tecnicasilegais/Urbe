@@ -21,7 +21,7 @@ public class Bairro
 	 * Método responsável por informar o nome do Bairro.
 	 * @return String contendo o nome
 	 */
-	public String getNome()
+	public String nome()
 	{
 		return nome;
 	}
@@ -30,7 +30,7 @@ public class Bairro
 	 * Retorna a área do Bairro.
 	 * @return variavel contendo a área do bairro
 	 */
-	public Area getLimites()
+	public Area limites()
 	{
 		return limites;
 	}
@@ -39,7 +39,7 @@ public class Bairro
 	 * Retorna o custo base deste bairro.
 	 * @return int contendo o valor do custo
 	 */
-	public double getCustoBase()
+	public double custoBase()
 	{
 		return custoBase;
 	}
@@ -48,7 +48,7 @@ public class Bairro
 	 * Altera o custo base do bairro
 	 * @param custoBase novo custo
 	 */
-	public void setCustoBase(double custoBase)
+	public void mudaCustoBase(double custoBase)
 	{
 		if (custoBase < 0){
 			throw new IllegalArgumentException("Valor inválido");

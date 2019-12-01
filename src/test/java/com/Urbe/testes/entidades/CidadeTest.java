@@ -1,6 +1,7 @@
 package com.Urbe.testes.entidades;
 
 import com.urbe.entidades.Bairro;
+import com.urbe.entidades.Cidade;
 import com.urbe.entidades.geometria.Area;
 import com.urbe.entidades.geometria.Ponto;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BairroTest
+public class CidadeTest
 {
     private Ponto p1;
     private Area a1, a2;
