@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -25,7 +24,6 @@ public class MotoristaTest
     private Motorista mNovo;
     private Motorista mExistente;
     private Veiculo v1, v2;
-    private final int av = 8;
 	@BeforeEach
 	public void setup()
 	{
