@@ -18,24 +18,25 @@ public class ClienteFachadaRemota
 	}
 
 	@GetMapping("/solicitacaoviagem")
-	public TOViagem getDadosViagem(@RequestParam String cpf,
-	                               @RequestParam String bOrig,
-	                               @RequestParam String bDest,
-	                               @RequestParam String formaPgto,
-	                               @RequestParam String catVeiculo)
+	public TOViagem dadosViagem(@RequestParam String cpf,
+	                            @RequestParam String bOrig,
+	                            @RequestParam String bDest,
+	                            @RequestParam String formaPgto,
+	                            @RequestParam String catVeiculo)
 	{
 		Viagem viagem = servicosPassageiro.criarViagem(cpf, bOrig, bDest, formaPgto, catVeiculo);
 		TOViagem toViagem = new TOViagem();
-		toViagem.setCustoCorrida(viagem.getCusto());
-		toViagem.setMarcaModelo(viagem.getMotorista().getVeiculo().getMarca() +
-				viagem.getMotorista().getVeiculo().getCor());
-		toViagem.setNomeMotorista(viagem.getMotorista().getNome());
-		toViagem.setPlacaVeiculo(viagem.getMotorista().getVeiculo().getPlaca());
+		toViagem.custoCorrida(viagem.custo());
+		toViagem.marcaModelo(viagem.motorista().veiculo().marca() +
+				viagem.motorista().veiculo().cor());
+		toViagem.nomeMotorista(viagem.motorista().nome());
+		toViagem.placaVeiculo(viagem.motorista().veiculo().placa());
 		return toViagem;
 	}
 
-	public Boolean getDadosViagem(@RequestParam String cpfMotorista,
-	                              @RequestParam int avaliacaoMotorista){
+	public Boolean dadosViagem(@RequestParam String cpfMotorista,
+	                           @RequestParam int avaliacaoMotorista)
+	{
 		return servicosPassageiro.avaliarMotorista(cpfMotorista, avaliacaoMotorista);
 	}
 }
