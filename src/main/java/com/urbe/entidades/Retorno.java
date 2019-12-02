@@ -1,5 +1,6 @@
 package com.urbe.entidades;
 
+@SuppressWarnings("rawtypes")
 public class Retorno<E>
 {
 	private boolean ok;
@@ -13,7 +14,7 @@ public class Retorno<E>
 
 	public static Retorno retornarFalha(String mensagem)
 	{
-		return new Retorno(false, null, mensagem);
+		return new Retorno<Boolean>(false, null, mensagem);
 	}
 
 	private Retorno(boolean ok, E dados, String mensagem)
