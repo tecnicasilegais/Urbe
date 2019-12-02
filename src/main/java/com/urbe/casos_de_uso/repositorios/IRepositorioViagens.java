@@ -10,5 +10,5 @@ public interface IRepositorioViagens
 {
 	Retorno cadastrarViagem(Viagem viagem);
 
-	Retorno<List<Viagem>> obterViagens(Retorno<Motorista> motorista);
+	Retorno<List<Viagem>> obterViagens(Motorista motorista);
 }

@@ -15,16 +15,19 @@ public class RepositorioCidades implements IRepositorioCidades
 
 	public RepositorioCidades()
 	{
-
 		cidades = new HashMap<>();
 		Cidade c = Cidade.criaCidade("POO");
+		cidades.put(c.nome(), c);
 	}
 
 	@Override
 	public Retorno<Cidade> obterPorNome(String nomeCidade)
 	{
 		Cidade cidade = cidades.get(nomeCidade);
-		Retorno<Cidade> retorno = new Retorno<>(cidade,"");
-		return retorno;
+		if (cidade == null)
+		{
+			return new Retorno<>(false, "Cidade inexistente: " + nomeCidade);
+		}
+		return new Retorno<>(true, cidade, "Sucesso");
 	}
 }

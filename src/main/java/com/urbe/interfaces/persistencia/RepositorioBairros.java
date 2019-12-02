@@ -27,9 +27,6 @@ public class RepositorioBairros implements IRepositorioBairros
 		{
 			return new Retorno<>(false, "Bairro inexistente: " + nomeBairro);
 		}
-		else
-		{
-			return new Retorno<>(true, bairro, "Sucesso");
-		}
+		return new Retorno<>(true, bairro, "Sucesso");
 	}
 }
