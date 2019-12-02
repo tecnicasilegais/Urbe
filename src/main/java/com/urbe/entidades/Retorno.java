@@ -1,6 +1,5 @@
 package com.urbe.entidades;
 
-@SuppressWarnings("rawtypes")
 public class Retorno<E>
 {
 	private boolean ok;
