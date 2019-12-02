@@ -37,7 +37,7 @@ public class CalculoCustoViagemBasico extends CalculoCustoViagem
 
     @Override
     public double descontoPontuacao() {
-        return 0.0;
+        return (passageiro().pontuacaoMedia() > 9.0)? calculoCustoBasico()*0.1:0.0;
     }
 
     @Override
