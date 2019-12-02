@@ -6,28 +6,23 @@ public class Retorno<E>
 	private String mensagem;
 	private E dados;
 
-	public Retorno(boolean ok, String mensagem)
+	public static <T> Retorno<T> retornarSucesso(T conteudo)
 	{
-		this.ok = ok;
-		this.mensagem = mensagem;
-		this.dados = null;
+		return new Retorno<T>(true, conteudo, "Sucesso");
 	}
 
-	public Retorno(boolean ok, E dados, String mensagem)
+	public static Retorno retornarFalha(String mensagem)
+	{
+		return new Retorno(false, null, mensagem);
+	}
+
+	private Retorno(boolean ok, E dados, String mensagem)
 	{
 		this.ok = ok;
 		this.mensagem = mensagem;
 		this.dados = dados;
 	}
 
-	public Retorno(E dados, String mensagem)
-	{
-		if (dados == null){
-			this.ok = false;
-		}
-		this.dados = dados;
-		this.mensagem = mensagem;
-	}
 	public boolean ok()
 	{
 		return this.ok;
@@ -38,5 +33,8 @@ public class Retorno<E>
 		return this.mensagem;
 	}
 
-	public E dados() {return this.dados;}
+	public E dados()
+	{
+		return this.dados;
+	}
 }
