@@ -5,6 +5,7 @@ import com.urbe.entidades.Passageiro;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,7 +30,7 @@ public class PassageiroTest
     @DisplayName("Testa Nome")
     @Test
     public void testaNome(){
-        assertEquals("x12131231", pNovo.nome());
+        assertEquals("jaozin", pNovo.nome());
     }
 
     @DisplayName("Testa pontuacao Media")
@@ -47,7 +48,7 @@ public class PassageiroTest
     @DisplayName("Testa cpf")
     @Test
     public void testaCpf(){
-        assertEquals("seila", pNovo.cpf());
+        assertEquals("12312312311", pNovo.cpf());
     }
 
     @DisplayName("Testa soma avaliações")
@@ -69,6 +70,7 @@ public class PassageiroTest
     }
 
     @DisplayName("Testa avalia com sucesso")
+    @ParameterizedTest
 	@CsvSource({"10","9","8","5","0","3"})
     public void testaAvaliaSucesso(int avaliacao){
         pNovo.avalia(avaliacao);

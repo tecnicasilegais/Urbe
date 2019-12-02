@@ -108,7 +108,7 @@ public class Passageiro
 	 */
 	public void avalia (int pontuacao)
 	{
-		if (!(pontuacao > 0 && pontuacao < 10))
+		if (!(pontuacao >= 0 && pontuacao <= 10))
 		{
 			throw new IllegalArgumentException("Pontuação inválida ! Deve ser uma pontuação de 0 a 10.");
 		}

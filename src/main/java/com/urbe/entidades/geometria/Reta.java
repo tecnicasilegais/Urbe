@@ -17,12 +17,6 @@ public class Reta
 						Math.pow(p2.y() - p1.y(), 2));
 	}
 
-	@Override
-	public String toString()
-	{
-		return "Reta [p1=" + p1 + ", p2=" + p2 + "]";
-	}
-
 	//region Getters/Setters
 	public Ponto p1()
 	{
@@ -34,4 +28,29 @@ public class Reta
 		return p2;
 	}
 	//endregion
+	
+	@Override
+	public boolean equals(Object other)
+	{
+		if(this == other)
+			return true;
+
+		if (other == null || other.getClass() != this.getClass())
+			return false;
+
+		Reta otherReta = (Reta) other;
+
+		if ((this.p1.equals(otherReta.p1)) &&
+			 this.p2.equals(otherReta.p2)){
+			return true;
+		}
+
+		return false;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Reta [p1=" + p1 + ", p2=" + p2 + "]";
+	}
 }

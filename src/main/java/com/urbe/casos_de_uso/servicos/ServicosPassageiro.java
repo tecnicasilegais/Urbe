@@ -29,7 +29,7 @@ public class ServicosPassageiro
 	{
 		Retorno<Passageiro> passageiro = passageiros.obterPorCpf(cpf);
 		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
-		Motorista motorista = motoristas.("Marcelo");
+		//Motorista motorista = motoristas.("Marcelo");
 		return null;
 	}
 

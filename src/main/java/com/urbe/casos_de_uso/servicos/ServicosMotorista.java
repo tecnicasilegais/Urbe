@@ -31,11 +31,9 @@ public class ServicosMotorista
 
 	public Retorno<List<Viagem>> obterViagensMotorista(String cpf)
 	{
-		Retorno<List<Viagem>> retornoViagens = viagens.obterViagens(motoristas.obterPorCpf(cpf));
-		if (!retornoViagens.ok())
-		{
-
-		}
+		//Retorno<List<Viagem>> retornoViagens = viagens.obterViagens(motoristas.obterPorCpf(cpf));
+		//if (!retornoViagens.ok())
+		return null;
 	}
 
 	public Passageiro avaliarPassageiro(String cpf, int avaliacao)

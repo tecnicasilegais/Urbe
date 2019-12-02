@@ -11,12 +11,6 @@ public class Ponto
 		this.y = y;
 	}
 
-	@Override
-	public String toString()
-	{
-		return "Ponto [x=" + x + ", y=" + y + "]";
-	}
-
 	//region Getters/Setters
 	public int x()
 	{
@@ -28,4 +22,31 @@ public class Ponto
 		return y;
 	}
 	//endregion
+
+	
+	@Override
+	public boolean equals(Object other)
+	{
+		if(this == other)
+			return true;
+
+		if (other == null || other.getClass() != this.getClass())
+			return false;
+
+		Ponto otherPonto = (Ponto) other;
+
+		if ((this.x == otherPonto.x) &&
+			 (this.y == otherPonto.y)){
+			return true;
+		}
+
+		return false;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Ponto [x=" + x + ", y=" + y + "]";
+	}
+
 }

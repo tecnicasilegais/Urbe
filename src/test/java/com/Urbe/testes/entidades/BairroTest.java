@@ -15,16 +15,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BairroTest
 {
-    private Ponto p1;
     private Area a1, a2;
     private Bairro bairroPadraoTestes;
 
 	@BeforeEach
 	public void setup()
 	{
-        p1 = new Ponto(10, 10);
-        a1 = new Area(p1, new Ponto(20, 20));
-        a2 = new Area(p1, new Ponto(20, 15));
+        a1 = new Area(new Ponto(0,12), new Ponto(4,8));
+        a2 = new Area(new Ponto(0,8), new Ponto(2,4));
         bairroPadraoTestes = new Bairro("teste", a1, 5.0);   
     }
     

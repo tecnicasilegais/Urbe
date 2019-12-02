@@ -30,13 +30,13 @@ public class VeiculoTest
     @DisplayName("Testa placa")
     @Test
     public void testaPlaca(){
-        assertEquals("x12131231", v1.placa());
+        assertEquals("ABC1234", v1.placa());
     }
 
     @DisplayName("Testa Marca")
     @Test
     public void testaMarca(){
-        assertEquals("seila2", v2.placa());
+        assertEquals("seila2", v2.marca());
     }
 
     @DisplayName("Testa cor")
