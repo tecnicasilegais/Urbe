@@ -12,7 +12,7 @@ public class Passageiro
 	 * Construtor para um novo passageiro.
 	 * @param cpf String contendo cpf do passageiro
 	 * @param nome String contendo nome do passageiro
-	 * @param formasPagamento Forma de pagamento que o passageiro utiliza
+	 * @param formaPagamento Forma de pagamento que o passageiro utiliza
 	 * @return Uma instância de passageiro
 	 */
 	public static Passageiro novoPassageiro(String cpf, String nome, FormaPagamento formaPagamento)
