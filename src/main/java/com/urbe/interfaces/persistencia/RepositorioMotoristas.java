@@ -42,11 +42,12 @@ public class RepositorioMotoristas implements IRepositorioMotoristas
 	{
 		for (Motorista motorista : motoristas.values())
 		{
-			if (motorista.nome() == nome)
+			if (motorista.nome().equals(nome))
 			{
 				return Retorno.retornarSucesso(motorista);
 			}
 		}
+		return Retorno.retornarFalha("Motorista " + nome + " não encontrado");
 	}
 
 	@Override

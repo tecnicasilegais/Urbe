@@ -9,12 +9,12 @@ public class Retorno<E>
 
 	public static <T> Retorno<T> retornarSucesso(T conteudo)
 	{
-		return new Retorno<T>(true, conteudo, "Sucesso");
+		return new Retorno<>(true, conteudo, "Sucesso");
 	}
 
-	public static <T> Retorno retornarFalha(String mensagem)
+	public static <T> Retorno<T> retornarFalha(String mensagem)
 	{
-		return new Retorno<T>(false, null, mensagem);
+		return new Retorno<>(false, null, mensagem);
 	}
 
 	private Retorno(boolean ok, E dados, String mensagem)

@@ -15,7 +15,7 @@ public class RepositorioPassageiros implements IRepositorioPassageiros
 	@Override
 	public Retorno<Boolean> atualizarPassageiro(Passageiro passageiro)
 	{
-		return new Retorno<Boolean>(true, true, "");
+		return Retorno.retornarFalha("Implementar");
 	}
 
 	@Override
@@ -24,8 +24,8 @@ public class RepositorioPassageiros implements IRepositorioPassageiros
 		Passageiro passageiro = passageiros.get(cpf);
 		if (passageiro == null)
 		{
-			return new Retorno<>(false, "Passageiro inexistente: " + cpf);
+			return Retorno.retornarFalha("Passageiro inexistente: " + cpf);
 		}
-		return new Retorno<>(true, passageiro, "Sucesso");
+		return Retorno.retornarSucesso(passageiro);
 	}
 }
