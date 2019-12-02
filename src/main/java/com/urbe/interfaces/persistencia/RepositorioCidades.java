@@ -13,10 +13,20 @@ public class RepositorioCidades implements IRepositorioCidades
 {
 	private Map<String, Cidade> cidades;
 
-	public RepositorioCidades()
+	public RepositorioCidades(RepositorioBairros bairros)
 	{
 		cidades = new HashMap<>();
 		Cidade c = Cidade.criaCidade("POO");
+
+		c.regBairro(bairros.obterPorNome("Petropolis").dados());
+		c.regBairro(bairros.obterPorNome("Ipiranga").dados());
+		c.regBairro(bairros.obterPorNome("Solidao").dados());
+		c.regBairro(bairros.obterPorNome("Bom Fim").dados());
+		c.regBairro(bairros.obterPorNome("Vila Nova").dados());
+		c.regBairro(bairros.obterPorNome("Alegria").dados());
+		c.regBairro(bairros.obterPorNome("Boa Vista").dados());
+		c.regBairro(bairros.obterPorNome("Gavea").dados());
+
 		cidades.put(c.nome(), c);
 	}
 
@@ -26,8 +36,8 @@ public class RepositorioCidades implements IRepositorioCidades
 		Cidade cidade = cidades.get(nomeCidade);
 		if (cidade == null)
 		{
-			return new Retorno<>(false, "Cidade inexistente: " + nomeCidade);
+			return Retorno.retornarFalha("Cidade inexistente: " + nomeCidade);
 		}
-		return new Retorno<>(true, cidade, "Sucesso");
+		return Retorno.retornarSucesso(cidade);
 	}
 }
