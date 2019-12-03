@@ -11,7 +11,38 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=123456789-01&bOrig=Petropolis&bDest=Ipiranga&formaPgto=DEBITO&catVeiculo=SIMPLES",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123456789-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Petropolis"
+						},
+						{
+							"key": "bDest",
+							"value": "Ipiranga"
+						},
+						{
+							"key": "formaPgto",
+							"value": "DEBITO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "SIMPLES"
+						}
+					]
 				},
 				"description": "Viagem Petropolis -> Ipiranga\nPgto: Debito\nCat : simples"
 			},
@@ -23,7 +54,38 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=123456789-01&bOrig=Petropolis&bDest=Ipiranga&formaPgto=CREDITO&catVeiculo=NORMAL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123456789-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Petropolis"
+						},
+						{
+							"key": "bDest",
+							"value": "Ipiranga"
+						},
+						{
+							"key": "formaPgto",
+							"value": "CREDITO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "NORMAL"
+						}
+					]
 				},
 				"description": "Petropolis -> Ipiranga\nCredito\nNormal"
 			},
@@ -35,7 +97,38 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=123456789-01&bOrig=Petropolis&bDest=Ipiranga&formaPgto=DINHEIRO&catVeiculo=LUXO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123456789-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Petropolis"
+						},
+						{
+							"key": "bDest",
+							"value": "Ipiranga"
+						},
+						{
+							"key": "formaPgto",
+							"value": "DINHEIRO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "LUXO"
+						}
+					]
 				},
 				"description": "Petropolis -> Ipiranga\nDINHEIRO\nLuxo"
 			},
@@ -47,7 +140,38 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=123456789-01&bOrig=Petropolis&bDest=Ipiranga&formaPgto=DEBITO&catVeiculo=LUXO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123456789-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Petropolis"
+						},
+						{
+							"key": "bDest",
+							"value": "Ipiranga"
+						},
+						{
+							"key": "formaPgto",
+							"value": "DEBITO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "LUXO"
+						}
+					]
 				},
 				"description": "Falha Forma de pagamento não disponível\n"
 			},
@@ -101,7 +225,38 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=123456789-01&bOrig=Gavea&bDest=Petropolis&formaPgto=DINHEIRO&catVeiculo=LUXO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123456789-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Gavea"
+						},
+						{
+							"key": "bDest",
+							"value": "Petropolis"
+						},
+						{
+							"key": "formaPgto",
+							"value": "DINHEIRO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "LUXO"
+						}
+					]
 				}
 			},
 			"response": []
@@ -230,7 +385,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/urbe/avaliarpassageiro?cpfMotorista=098276140-99&avaliacaoMotorista=12",
+					"raw": "http://localhost:8080/urbe/avaliarpassageiro?cpfPassageiro=098276140-99&avaliacaoPassageiro=12",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -242,11 +397,11 @@
 					],
 					"query": [
 						{
-							"key": "cpfMotorista",
+							"key": "cpfPassageiro",
 							"value": "098276140-99"
 						},
 						{
-							"key": "avaliacaoMotorista",
+							"key": "avaliacaoPassageiro",
 							"value": "12"
 						}
 					]
