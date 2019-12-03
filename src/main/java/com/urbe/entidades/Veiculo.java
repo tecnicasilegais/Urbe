@@ -5,6 +5,7 @@ public abstract class Veiculo
 	private String placa;
 	private String marca;
 	private String cor;
+	private String tipo;
 
 	public Veiculo(String placa, String marca, String cor)
 	{
@@ -27,6 +28,16 @@ public abstract class Veiculo
 	public String cor()
 	{
 		return cor;
+	}
+
+	public String tipo()
+	{
+		return tipo;
+	}
+
+	public void tipo(String tipo)
+	{
+		this.tipo = tipo;
 	}
 
 	@Override

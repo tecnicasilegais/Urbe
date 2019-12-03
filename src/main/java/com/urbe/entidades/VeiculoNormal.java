@@ -15,6 +15,7 @@ public class VeiculoNormal extends Veiculo
 	{
 		super(placa, marca, cor);
 		this.atendeCategoriaInferior = true;
+		tipo("NORMAL");
 	}
 
 	/**

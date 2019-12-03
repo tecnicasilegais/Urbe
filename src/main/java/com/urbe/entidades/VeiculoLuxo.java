@@ -15,6 +15,7 @@ public class VeiculoLuxo extends VeiculoNormal
 	{
 		super(placa, marca, cor);
 		this.bagageiroGrande = true;
+		tipo("LUXO");
 	}
 
 	/**
