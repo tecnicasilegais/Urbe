@@ -19,12 +19,9 @@ public class CalculoCustoViagemTest
 	List<FormaPagamento> f1;
 	FormaPagamento f2;
 	LocalDateTime tm;
-	private Viagem viagem1;
-	private Veiculo v1;
+	private Veiculo v1,v2,v3;
 	private Passageiro p1;
-	private Motorista m1;
 	private Cidade city;
-	private Area a1, a2;
 	private Bairro b1, b2;
 
 	@BeforeEach
@@ -37,8 +34,9 @@ public class CalculoCustoViagemTest
 		f2 = FormaPagamento.CREDITO;
 
 		v1 = vf.createInstance("ABC1234", "seila", "branco", "SIMPLES");
+		v2 = vf.createInstance("ABC1234", "seila", "branco", "NORMAL");
+		v3 = vf.createInstance("ABC1234", "seila", "branco", "LUXO");
 
-		m1 = Motorista.novoMotorista("12312312311", "jaozin", v1, f1);
 		p1 = Passageiro.novoPassageiro("123123311", "jaozino", f2);
 
 		b1 = new Bairro("Petropolis", new Area(new Ponto(0, 12), new Ponto(4, 8)), 10);
@@ -47,7 +45,6 @@ public class CalculoCustoViagemTest
 		city.regBairro(b2);
 		tm = LocalDateTime.now();
 
-		viagem1 = Viagem.novaViagem(2, city, b1, b2, m1, p1, 100);
 	}
 
 	@DisplayName("Testa Viagem Basica")
@@ -59,5 +56,21 @@ public class CalculoCustoViagemTest
 		assertEquals(16, custo);
 	}
 
+	@DisplayName("Testa Viagem Normal")
+	@Test
+	public void testaCustoViagemNormal()
+	{
+		double custo = CustoViagem.criaCustoViagem("Basico")
+							.custoViagem(city, b1, b2, p1, v2);
+		assertEquals(16+16*0.1, custo);
+	}
 
+	@DisplayName("Testa Viagem Luxo")
+	@Test
+	public void testaCustoViagemLuxo()
+	{
+		double custo = CustoViagem.criaCustoViagem("Basico")
+							.custoViagem(city, b1, b2, p1, v3);
+		assertEquals(16+16*0.1+16*0.04, custo);
+	}
 }
