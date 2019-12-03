@@ -1,5 +1,8 @@
 package com.urbe.interfaces.webservice;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.urbe.casos_de_uso.servicos.ServicosMotorista;
 import com.urbe.casos_de_uso.servicos.ServicosPassageiro;
 import com.urbe.entidades.TOViagem;
@@ -36,10 +39,27 @@ public class ClienteFachadaRemota
 		TOViagem toViagem = new TOViagem();
 		toViagem.custoCorrida(viagem.custo());
 		toViagem.marcaModelo(viagem.motorista().veiculo().marca() +
-				                     viagem.motorista().veiculo().cor());
+				             viagem.motorista().veiculo().cor());
 		toViagem.nomeMotorista(viagem.motorista().nome());
 		toViagem.placaVeiculo(viagem.motorista().veiculo().placa());
 		return toViagem;
+	}
+
+	@GetMapping("/obterviagensmotorista")
+	public List<TOViagem> listarViagensMotorista(@RequestParam String cpf)
+	{
+		List<Viagem> lstViagens = servicosMotorista.obterViagensMotorista(cpf);
+		List<TOViagem> lstRetorno = new ArrayList<TOViagem>();
+		for(Viagem viagem: lstViagens)
+		{
+			TOViagem toViagem = new TOViagem();
+			toViagem.custoCorrida(viagem.custo());
+			toViagem.marcaModelo(viagem.motorista().veiculo().marca() +
+								 viagem.motorista().veiculo().cor());
+			toViagem.nomeMotorista(viagem.motorista().nome());
+			toViagem.placaVeiculo(viagem.motorista().veiculo().placa());
+		}
+		return lstRetorno;
 	}
 
 	@GetMapping("/avaliarmotorista")
