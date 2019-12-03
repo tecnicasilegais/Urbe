@@ -19,7 +19,7 @@ public class RepositorioPassageiros implements IRepositorioPassageiros
 		passageiros = new HashMap<>();
 
 		passageiros.put("123456789-01", Passageiro.novoPassageiro("123456789-01", "Marcelo", FormaPagamento.CREDITO));
-		passageiros.put("987654321-01", Passageiro.novoPassageiro("987654321-01", "Eduardo", FormaPagamento.CREDITO));
+		passageiros.put("987654321-01", Passageiro.novoPassageiroExistente("987654321-01", "Eduardo", FormaPagamento.CREDITO, 10, 5));
 	}
 
 	@Override

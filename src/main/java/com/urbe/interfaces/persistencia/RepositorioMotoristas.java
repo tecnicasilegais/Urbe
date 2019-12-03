@@ -32,7 +32,7 @@ public class RepositorioMotoristas implements IRepositorioMotoristas
 
 		formasPgto.set(0, FormaPagamento.DEBITO);
 		veiculo = repV.obterPorPlaca("SIM1234").dados();
-		motorista = Motorista.novoMotorista("786234902-33", "Aline Simp", veiculo, formasPgto);
+		motorista = Motorista.motoristaExistente("786234902-33", "Aline Simp", 10, 2, veiculo, formasPgto);
 		motoristas.put(motorista.cpf(), motorista);
 
 		formasPgto.set(0, FormaPagamento.DINHEIRO);
