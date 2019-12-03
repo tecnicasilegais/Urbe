@@ -56,7 +56,7 @@ public class Passageiro
 	 */
 	public double pontuacaoMedia()
 	{
-		return (double) (this.somaAvaliacoes / this.qtdAvaliacoes);
+		return (double)somaAvaliacoes/(double)qtdAvaliacoes;
 	}
 
 	/**
