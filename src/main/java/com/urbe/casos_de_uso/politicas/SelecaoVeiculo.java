@@ -28,11 +28,12 @@ public class SelecaoVeiculo
         this.smv = smv;
     }
 
-    public Motorista selecMotorista(Passageiro passageiro, FormaPagamento formaPgto, List<Motorista> motoristas)
+    public Motorista selecMotorista(Passageiro passageiro, FormaPagamento formaPgto, List<Motorista> motoristas, String categoriaVeiculo)
     {
         smv.passageiro(passageiro);
         smv.formaPgto(formaPgto);
         smv.motoristas(motoristas);
+        smv.categoriaVeiculo(categoriaVeiculo);
         return smv.selecionaMotorista();
     }
 }
