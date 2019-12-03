@@ -84,7 +84,7 @@ public class Cidade
 				bairros
 						.values()
 						.stream()
-						.filter(bairro -> bairro.limites().classifica(rota) == SituacaoReta.TODA_FORA)
+						.filter(bairro -> bairro.limites().classifica(rota) != SituacaoReta.TODA_FORA)
 						.collect(Collectors.toList());
 
 		return caminho;
