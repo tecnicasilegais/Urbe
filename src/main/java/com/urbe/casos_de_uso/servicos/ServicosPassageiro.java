@@ -5,9 +5,16 @@ import com.urbe.casos_de_uso.repositorios.IRepositorioCidades;
 import com.urbe.casos_de_uso.repositorios.IRepositorioMotoristas;
 import com.urbe.casos_de_uso.repositorios.IRepositorioPassageiros;
 import com.urbe.casos_de_uso.politicas.SelecaoVeiculo;
+import com.urbe.casos_de_uso.politicas.CustoViagem;
 import com.urbe.entidades.*;
+
+import java.time.LocalTime;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class ServicosPassageiro
@@ -29,7 +36,46 @@ public class ServicosPassageiro
 
 	public Viagem criarViagem(String cpf, String bairroOrigem, String bairroDestino, String formaPagamento, String categoriaVeiculo)
 	{
+		
+		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
+
+		//#region Obtencao Passageiro
 		Retorno<Passageiro> passageiro = passageiros.obterPorCpf(cpf);
+		if (!passageiro.ok())
+		{
+			throw new IllegalArgumentException(passageiro.mensagem());
+		}
+		//#endregion
+
+		//#region Forma formaPagamento
+		FormaPagamento fpg;
+		try
+		{
+			fpg = FormaPagamento.valueOf(formaPagamento);
+		}
+		catch(Exception ex)
+		{
+			throw new IllegalArgumentException("Forma de pagamento Inválida:" + formaPagamento);
+		}
+
+		//#endregion
+		
+		//#region Coleta dos Bairros
+		Bairro origem = cidade.dados().bairro(bairroOrigem);
+		if(origem == null)
+		{
+			throw new IllegalArgumentException("Bairro origem não encontrado: "+ bairroOrigem);
+		}
+		Bairro destino = cidade.dados().bairro(bairroDestino);
+		if (destino == null)
+		{
+			throw new IllegalArgumentException("Bairro destino não encontrado : "+bairroDestino);
+		}
+
+		//#endregion
+
+		//#region Coleta Motorista
+
 		//nessa versão estaremos usando apenas a SelecaoMotoristaVeiculoPadrao 
 
 		List<Motorista> motorasDisponiveis = motoristas.listarMotoristas();
@@ -37,22 +83,43 @@ public class ServicosPassageiro
 
 		Retorno<Motorista> motora = SelecaoVeiculo
 										.criaSelecaoVeiculo("Padrao")
-										.selecMotorista(passageiro.dados(), formaPagamento,motorasDisponiveis, categoriaVeiculo);
+										.selecMotorista(passageiro.dados(),fpg,motorasDisponiveis,categoriaVeiculo);
 
-		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
-		//asserts primeiro
-		Bairro origem = cidade.dados().bairro(bairroOrigem);
-		Bairro destino = cidade.dados().bairro(bairroDestino);
+		if (!motora.ok())
+		{
+			throw new IllegalArgumentException(motora.mensagem());
+		}
 
-		//calcular custo da viagem
+		//#endregion
 
-		//finalizar
+		//#region Calculo Custo Viagem
+		String tipoCusto = "PromocaoViagemLonga";
+		int [] dinamica = new int[]{6,7,8,12,13,17,18,19};
+		if(Arrays.stream(dinamica).anyMatch(t -> t == LocalTime.now().getHour()))
+		{
+			tipoCusto = "Dinamica";
+		}
+		else if (passageiro.dados().qtdAvaliacoes() >= 10)
+		{
+			tipoCusto = "DescontoQuantidadeViagens";
+		}
+		
+		double custo = CustoViagem.criaCustoViagem(tipoCusto)
+								  .custoViagem(cidade.dados(), origem, destino, passageiro.dados(), motora.dados().veiculo());
 
-		return null;
+		//#endregion
+
+		return Viagem.novaViagem(1,cidade.dados(),origem,destino,motora.dados(),passageiro.dados(),custo);
 	}
 
 	public Boolean avaliarMotorista(String cpfMotorista, int avaliacaoMotorista)
 	{
-		return false;
+		Retorno<Motorista> motora = motoristas.obterPorCpf(cpfMotorista);
+		if (!motora.ok()){
+			throw new IllegalArgumentException(motora.mensagem());
+		}
+
+		motora.dados().avalia(avaliacaoMotorista);
+		return true;
 	}
 }
