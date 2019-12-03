@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-@SuppressWarnings("rawtypes")
+
 @Component
 public class RepositorioViagens implements IRepositorioViagens
 {
@@ -19,21 +19,23 @@ public class RepositorioViagens implements IRepositorioViagens
 	public RepositorioViagens()
 	{
 		viagens = new HashMap<>();
+
+		viagens.put("", new LinkedList<>());
 	}
 
 	@Override
-	public Retorno cadastrarViagem(Viagem viagem)
+	public Retorno<Boolean> cadastrarViagem(Viagem viagem)
 	{
 		if (viagens.containsKey(viagem.motorista().cpf()))
 		{
 			viagens.get(viagem.motorista().cpf())
 					.add(viagem);
-			return new Retorno(true, "Sucesso");
+			return Retorno.retornarSucesso(true);
 		}
 		LinkedList<Viagem> listaInicial = new LinkedList<>();
 		listaInicial.add(viagem);
 		viagens.put(viagem.motorista().cpf(), listaInicial);
-		return new Retorno(true, "Sucesso");
+		return Retorno.retornarSucesso(true);
 	}
 
 	@Override
@@ -42,8 +44,8 @@ public class RepositorioViagens implements IRepositorioViagens
 		List<Viagem> viagensMotorista = viagens.get(motorista);
 		if (viagensMotorista == null)
 		{
-			return new Retorno<>(false, "Motorista " + motorista.nome() + "não tem viagens: ");
+			return Retorno.retornarFalha("Motorista " + motorista.nome() + "não tem viagens: ");
 		}
-		return new Retorno<>(true, viagensMotorista, "Sucesso");
+		return Retorno.retornarSucesso(viagensMotorista);
 	}
 }

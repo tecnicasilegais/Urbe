@@ -23,10 +23,11 @@ public class RepositorioPassageiros implements IRepositorioPassageiros
 	}
 
 	@Override
-	public Retorno<Boolean> atualizarPassageiro(Passageiro passageiro)
+	public Retorno<Passageiro> atualizarPassageiro(Passageiro passageiro)
 	{
 		Passageiro passBase = passageiros.get(passageiro.cpf());
 		passBase.formaPagamento(passageiro.formaPagamento());
+		return Retorno.retornarSucesso(passBase);
 	}
 
 	@Override

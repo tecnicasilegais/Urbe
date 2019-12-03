@@ -7,5 +7,5 @@ public interface IRepositorioPassageiros
 {
 	Retorno<Passageiro> obterPorCpf(String cpf);
 
-	Retorno<Boolean> atualizarPassageiro(Passageiro passageiro);
+	Retorno<Passageiro> atualizarPassageiro(Passageiro passageiro);
 }
