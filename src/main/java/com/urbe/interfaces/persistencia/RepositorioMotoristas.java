@@ -25,7 +25,7 @@ public class RepositorioMotoristas implements IRepositorioMotoristas
 		Veiculo veiculo;
 		ArrayList<FormaPagamento> formasPgto = new ArrayList<>(1);
 
-		formasPgto.set(0, FormaPagamento.CREDITO);
+		formasPgto.add(FormaPagamento.CREDITO);
 		veiculo = repV.obterPorPlaca("NOR1234").dados();
 		motorista = Motorista.novoMotorista("349983409-88", "Jose Norm", veiculo, formasPgto);
 		motoristas.put(motorista.cpf(), motorista);
