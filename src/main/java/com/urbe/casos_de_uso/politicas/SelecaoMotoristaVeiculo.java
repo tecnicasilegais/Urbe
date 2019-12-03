@@ -1,10 +1,12 @@
 package com.urbe.casos_de_uso.politicas;
 
 import com.urbe.entidades.Passageiro;
+import com.urbe.entidades.Retorno;
 import com.urbe.entidades.Veiculo;
 import com.urbe.entidades.Motorista;
 
 import java.util.List;
+import java.util.Random;
 
 import com.urbe.entidades.FormaPagamento;
 
@@ -55,9 +57,25 @@ public abstract class SelecaoMotoristaVeiculo
         return categoriaVeiculo;
     }
 
-    public Motorista selecionaMotorista()
+    public Retorno<Motorista> selecionaMotorista()
     {
+        motoristas = filtraFormaPgto();
+        if(motoristas.isEmpty())
+            return Retorno.retornarFalha("Não foi possível localizar um motorista para esta forma de pagamento");
         
+        motoristas = filtraCategoria();
+        if(motoristas.isEmpty())
+            return Retorno.retornarFalha("Não foi possível localizar um motorista para esta categoria");
+        
+            motoristas = filtraPontuacao();
+        if(motoristas.isEmpty())
+            return Retorno.retornarFalha("Não foi encontrado um motorista compatível com sua pontuação");
+
+        Random rd = new Random();
+        
+        Motorista rdm = motoristas.get(rd.nextInt(motoristas.size()));
+        return Retorno.retornarSucesso(rdm);
+
     }
 
     public abstract List<Motorista> filtraFormaPgto();
