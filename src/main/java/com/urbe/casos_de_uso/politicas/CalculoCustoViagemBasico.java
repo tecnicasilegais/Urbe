@@ -15,13 +15,13 @@ public class CalculoCustoViagemBasico extends CalculoCustoViagem
 	@Override
 	public double adicionalVeiculo()
 	{
-		switch (veiculo().getClass().getName())
+		switch (veiculo().tipo())
 		{
-			case "VeiculoSimples":
+			case "SIMPLES":
 				return 0.0;
-			case "VeiculoNormal":
+			case "NORMAL":
 				return calculoCustoBasico() * 0.1;
-			case "VeiculoLuxo":
+			case "LUXO":
 				int bairrosPercorr = cidade().bairrosPercorridos(rota()).size();
 				double percentual = bairrosPercorr * 0.02;
 				double custoBasico = calculoCustoBasico();
