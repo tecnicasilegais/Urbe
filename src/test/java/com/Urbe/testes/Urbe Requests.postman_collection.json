@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "0841c836-ae0a-45ed-b0f4-dd1d703a32e4",
+		"name": "Urbe Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Viagem1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Viagem Petropolis -> Ipiranga\nPgto: Debito\nCat : simples"
+			},
+			"response": []
+		},
+		{
+			"name": "Viagem2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Petropolis -> Ipiranga\nCredito\nNormal"
+			},
+			"response": []
+		},
+		{
+			"name": "Viagem3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Petropolis -> Ipiranga\nDINHEIRO\nLuxo"
+			},
+			"response": []
+		},
+		{
+			"name": "ViagemFalha1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Falha Forma de pagamento não disponível\n"
+			},
+			"response": []
+		},
+		{
+			"name": "ViagemMaisBairros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=123456789-01&bOrig=Petropolis&bDest=Gavea&formaPgto=DINHEIRO&catVeiculo=LUXO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "123456789-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Petropolis"
+						},
+						{
+							"key": "bDest",
+							"value": "Gavea"
+						},
+						{
+							"key": "formaPgto",
+							"value": "DINHEIRO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "LUXO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViagemMaisSimples",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DiferençaDeMedia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/urbe/solicitarviagem?cpf=987654321-01&bOrig=Petropolis&bDest=Gavea&formaPgto=DINHEIRO&catVeiculo=LUXO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"solicitarviagem"
+					],
+					"query": [
+						{
+							"key": "cpf",
+							"value": "987654321-01"
+						},
+						{
+							"key": "bOrig",
+							"value": "Petropolis"
+						},
+						{
+							"key": "bDest",
+							"value": "Gavea"
+						},
+						{
+							"key": "formaPgto",
+							"value": "DINHEIRO"
+						},
+						{
+							"key": "catVeiculo",
+							"value": "LUXO"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Avaliar Motorista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/urbe/avaliarmotorista?cpfMotorista=098276140-99&avaliacaoMotorista=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"avaliarmotorista"
+					],
+					"query": [
+						{
+							"key": "cpfMotorista",
+							"value": "098276140-99"
+						},
+						{
+							"key": "avaliacaoMotorista",
+							"value": "10"
+						},
+						{
+							"key": "bDest",
+							"value": "Gavea",
+							"disabled": true
+						},
+						{
+							"key": "formaPgto",
+							"value": "DINHEIRO",
+							"disabled": true
+						},
+						{
+							"key": "catVeiculo",
+							"value": "LUXO",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Avaliar Motorista Falha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/urbe/avaliarmotorista?cpfMotorista=098276140-99&avaliacaoMotorista=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"avaliarmotorista"
+					],
+					"query": [
+						{
+							"key": "cpfMotorista",
+							"value": "098276140-99"
+						},
+						{
+							"key": "avaliacaoMotorista",
+							"value": "12"
+						}
+					]
+				},
+				"description": "Nota fora dos limites\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Avaliar Passageiro Falha",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/urbe/avaliarpassageiro?cpfMotorista=098276140-99&avaliacaoMotorista=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"urbe",
+						"avaliarpassageiro"
+					],
+					"query": [
+						{
+							"key": "cpfMotorista",
+							"value": "098276140-99"
+						},
+						{
+							"key": "avaliacaoMotorista",
+							"value": "12"
+						}
+					]
+				},
+				"description": "Passageiro INEXISTENTE"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
