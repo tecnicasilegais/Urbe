@@ -120,6 +120,7 @@ public class ServicosPassageiro
 		}
 
 		motora.dados().avalia(avaliacaoMotorista);
+		
 		return true;
 	}
 }
