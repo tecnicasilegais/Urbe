@@ -1,6 +1,7 @@
 package com.urbe.casos_de_uso.politicas;
 
 import com.urbe.entidades.Passageiro;
+import com.urbe.entidades.Retorno;
 import com.urbe.entidades.Motorista;
 
 import java.util.List;
@@ -15,9 +16,10 @@ public class SelecaoVeiculo
     {
         switch (tipo)
         {
-            case "FormaPgto":
-                return new SelecaoVeiculo(new SelecaoMotoristaVeiculoFormaPgto());
-            
+            case "Padrao":
+                return new SelecaoVeiculo(new SelecaoMotoristaVeiculoPadrao());
+            case  "AtendaCatInferior":
+                return new SelecaoVeiculo(new SelecaoMotoristaVeiculoAtendaCatInferior());
             default:
                 throw new IllegalArgumentException("Categoria de seleção de veículo inválida");
         }
@@ -28,7 +30,7 @@ public class SelecaoVeiculo
         this.smv = smv;
     }
 
-    public Motorista selecMotorista(Passageiro passageiro, FormaPagamento formaPgto, List<Motorista> motoristas, String categoriaVeiculo)
+    public Retorno<Motorista> selecMotorista(Passageiro passageiro, FormaPagamento formaPgto, List<Motorista> motoristas, String categoriaVeiculo)
     {
         smv.passageiro(passageiro);
         smv.formaPgto(formaPgto);

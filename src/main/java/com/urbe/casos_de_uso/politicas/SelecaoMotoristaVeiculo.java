@@ -2,7 +2,6 @@ package com.urbe.casos_de_uso.politicas;
 
 import com.urbe.entidades.Passageiro;
 import com.urbe.entidades.Retorno;
-import com.urbe.entidades.Veiculo;
 import com.urbe.entidades.Motorista;
 
 import java.util.List;
@@ -67,7 +66,7 @@ public abstract class SelecaoMotoristaVeiculo
         if(motoristas.isEmpty())
             return Retorno.retornarFalha("Não foi possível localizar um motorista para esta categoria");
         
-            motoristas = filtraPontuacao();
+        motoristas = filtraPontuacao();
         if(motoristas.isEmpty())
             return Retorno.retornarFalha("Não foi encontrado um motorista compatível com sua pontuação");
 
