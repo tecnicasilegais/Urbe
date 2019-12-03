@@ -20,13 +20,14 @@ public class RepositorioVeiculos implements IRepositorioVeiculos
 	{
 		veiculos = new HashMap<>();
 
-		Veiculo veiculo = fabricaVeiculo.createInstance("ABC1234", "GM", "Verde", "NORMAL");
+		Veiculo veiculo;
+		veiculo = fabricaVeiculo.createInstance("NOR1234", "GM", "Verde", "NORMAL");
 		veiculos.put(veiculo.placa(), veiculo);
 
-		veiculo = fabricaVeiculo.createInstance("XYZ5678", "WW", "Cinza", "SIMPLES");
+		veiculo = fabricaVeiculo.createInstance("SIM1234", "WW", "Cinza", "SIMPLES");
 		veiculos.put(veiculo.placa(), veiculo);
 
-		veiculo = fabricaVeiculo.createInstance("AKK7336", "Honda", "Azul", "LUXO");
+		veiculo = fabricaVeiculo.createInstance("LUX1234", "Honda", "Azul", "LUXO");
 		veiculos.put(veiculo.placa(), veiculo);
 	}
 

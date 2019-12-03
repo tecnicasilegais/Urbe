@@ -99,7 +99,7 @@ public class MotoristaTest
 	public void testaAvaliaSucesso(int avaliacao)
 	{
 		mNovo.avalia(avaliacao);
-		assertEquals((8 + avaliacao) / 2, mNovo.pontuacaoMedia());
+		assertEquals((8.0 + avaliacao) / 2.0, mNovo.pontuacaoMedia());
 		assertEquals(2, mNovo.qtdAvaliacoes());
 	}
 

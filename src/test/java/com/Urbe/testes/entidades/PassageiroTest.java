@@ -81,7 +81,7 @@ public class PassageiroTest
 	public void testaAvaliaSucesso(int avaliacao)
 	{
 		pNovo.avalia(avaliacao);
-		assertEquals((8 + avaliacao) / 2, pNovo.pontuacaoMedia());
+		assertEquals((8.0 + avaliacao) / 2.0, pNovo.pontuacaoMedia());
 		assertEquals(2, pNovo.qtdAvaliacoes());
 	}
 
