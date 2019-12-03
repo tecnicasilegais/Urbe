@@ -28,7 +28,7 @@ public abstract class CalculoCustoViagem
 	{
 		this.destino = destino;
 	}
-	
+
 	public void passageiro(Passageiro passageiro)
 	{
 		this.passageiro = passageiro;

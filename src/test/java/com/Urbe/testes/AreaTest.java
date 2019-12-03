@@ -1,9 +1,9 @@
 package com.Urbe.testes;
 
-import com.urbe.entidades.geometria.SituacaoReta;
 import com.urbe.entidades.geometria.Area;
 import com.urbe.entidades.geometria.Ponto;
 import com.urbe.entidades.geometria.Reta;
+import com.urbe.entidades.geometria.SituacaoReta;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

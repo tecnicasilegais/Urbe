@@ -19,6 +19,7 @@ public class Bairro
 
 	/**
 	 * Retorna uma String contendo o nome do Bairro.
+	 *
 	 * @return String contendo o nome
 	 */
 	public String nome()
@@ -28,6 +29,7 @@ public class Bairro
 
 	/**
 	 * Retorna a área do Bairro.
+	 *
 	 * @return variavel contendo a área do bairro
 	 */
 	public Area limites()
@@ -37,6 +39,7 @@ public class Bairro
 
 	/**
 	 * Retorna o custo base deste bairro.
+	 *
 	 * @return int contendo o valor do custo
 	 */
 	public double custoBase()
@@ -46,12 +49,14 @@ public class Bairro
 
 	/**
 	 * Altera o custo base do bairro
+	 *
 	 * @param custoBase novo custo
 	 * @throws IllegalArgumentException caso o valor seja menor que 0
 	 */
 	public void mudaCustoBase(double custoBase)
 	{
-		if (custoBase < 0){
+		if (custoBase < 0)
+		{
 			throw new IllegalArgumentException("Valor inválido");
 		}
 		this.custoBase = custoBase;
@@ -59,7 +64,8 @@ public class Bairro
 	//endregion
 
 	@Override
-	public String toString() {
-		return "Bairro: \n [ nome=" + nome + ", área = " + limites +"]";
+	public String toString()
+	{
+		return "Bairro: \n [ nome=" + nome + ", área = " + limites + "]";
 	}
 }

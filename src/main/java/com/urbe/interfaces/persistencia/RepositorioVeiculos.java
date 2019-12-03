@@ -15,7 +15,8 @@ public class RepositorioVeiculos implements IRepositorioVeiculos
 	private Map<String, Veiculo> veiculos;
 
 	@Autowired
-	public RepositorioVeiculos(){
+	public RepositorioVeiculos()
+	{
 		veiculos = new HashMap<>();
 	}
 
@@ -25,8 +26,8 @@ public class RepositorioVeiculos implements IRepositorioVeiculos
 		Veiculo veiculo = veiculos.get(placa);
 		if (veiculo == null)
 		{
-			return new Retorno<>(false, "Cidade inexistente: " + placa);
+			return Retorno.retornarFalha("Cidade inexistente: " + placa);
 		}
-		return new Retorno<>(true, veiculo, "Sucesso");
+		return Retorno.retornarSucesso(veiculo);
 	}
 }

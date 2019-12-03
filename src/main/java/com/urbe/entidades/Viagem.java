@@ -1,9 +1,9 @@
 package com.urbe.entidades;
 
-import java.time.LocalDateTime;
-
-import com.urbe.entidades.geometria.Reta;
 import com.urbe.entidades.geometria.Ponto;
+import com.urbe.entidades.geometria.Reta;
+
+import java.time.LocalDateTime;
 
 public class Viagem
 {
@@ -16,25 +16,6 @@ public class Viagem
 	private Passageiro passageiro;
 	private double custo;
 
-	/**
-	 * Construtor para uma nova viagem
-	 * @param id numero identificador da viagem
-	 * @param cidade cidade onde a viagem ocorre
-	 * @param origem bairro de origem da viagem
-	 * @param destino bairro de destino da viagem
-	 * @param motorista motorista responsável pela viagem
-	 * @param passageiro passageiro da viagem
-	 * @param custo custo atribuido pela viagem
-	 * @return Instância de Viagem preenchida
-	 */
-	public static Viagem novaViagem(int id,Cidade cidade,Bairro origem, Bairro destino,Motorista motorista,Passageiro passageiro, double custo){
-        return new Viagem(id,LocalDateTime.now(),cidade,origem,destino,motorista,passageiro,custo);
-    }
-
-    public static Viagem viagemExistente(int id, LocalDateTime dataHora, Cidade cidade, Bairro origem, Bairro destino, Motorista motorista, Passageiro passageiro, double custo){
-        return new Viagem(id,dataHora,cidade,origem,destino,motorista,passageiro,custo);
-	}
-	
 	private Viagem(int id, LocalDateTime dataHora, Cidade cidade, Bairro origem, Bairro destino, Motorista motorista, Passageiro passageiro, double custo)
 	{
 		this.id = id;
@@ -47,10 +28,34 @@ public class Viagem
 		this.custo = custo;
 	}
 
+	/**
+	 * Construtor para uma nova viagem
+	 *
+	 * @param id         numero identificador da viagem
+	 * @param cidade     cidade onde a viagem ocorre
+	 * @param origem     bairro de origem da viagem
+	 * @param destino    bairro de destino da viagem
+	 * @param motorista  motorista responsável pela viagem
+	 * @param passageiro passageiro da viagem
+	 * @param custo      custo atribuido pela viagem
+	 * @return Instância de Viagem preenchida
+	 */
+	public static Viagem novaViagem(int id, Cidade cidade, Bairro origem, Bairro destino, Motorista motorista, Passageiro passageiro, double custo)
+	{
+		return new Viagem(id, LocalDateTime.now(), cidade, origem, destino, motorista, passageiro, custo);
+	}
+
+	public static Viagem viagemExistente(int id, LocalDateTime dataHora, Cidade cidade, Bairro origem, Bairro destino, Motorista motorista,
+	                                     Passageiro passageiro, double custo)
+	{
+		return new Viagem(id, dataHora, cidade, origem, destino, motorista, passageiro, custo);
+	}
+
 	// region Getters/Setters
 
 	/**
 	 * Retorna o ID da viagem
+	 *
 	 * @return int contendo o ID
 	 */
 	public int id()
@@ -60,7 +65,8 @@ public class Viagem
 
 	/**
 	 * Retorna data e hora da viagem
-	 * @return LocalDateTime contendo data e hora 
+	 *
+	 * @return LocalDateTime contendo data e hora
 	 */
 	public LocalDateTime horario()
 	{
@@ -69,12 +75,14 @@ public class Viagem
 
 	/**
 	 * Retorna a cidade onde a viagem ocorre
-	 * @return Cidade 
+	 *
+	 * @return Cidade
 	 */
 	public Cidade cidade() {return cidade;}
 
 	/**
 	 * Retorna o bairro origem da viagem
+	 *
 	 * @return Bairro origem
 	 */
 	public Bairro origem()
@@ -84,6 +92,7 @@ public class Viagem
 
 	/**
 	 * Retorna o bairro destino da viagem
+	 *
 	 * @return Bairro destino
 	 */
 	public Bairro destino()
@@ -93,6 +102,7 @@ public class Viagem
 
 	/**
 	 * Retorna o motorista da viagem
+	 *
 	 * @return Motorista
 	 */
 	public Motorista motorista()
@@ -102,6 +112,7 @@ public class Viagem
 
 	/**
 	 * Retorna o passageiro da viagem
+	 *
 	 * @return Passageiro
 	 */
 	public Passageiro passageiro()
@@ -111,6 +122,7 @@ public class Viagem
 
 	/**
 	 * Retorna o custo da viagem
+	 *
 	 * @return double contendo custo
 	 */
 	public double custo()
@@ -120,6 +132,7 @@ public class Viagem
 
 	/**
 	 * Retorna a rota da viagem
+	 *
 	 * @return Reta apontando do centro do ponto de partida ao centro do ponto de destino
 	 */
 	public Reta rota()
@@ -128,12 +141,13 @@ public class Viagem
 		Ponto fim = destino.limites().pontoCentral();
 		return new Reta(ini, fim);
 	}
-	
+
 	//endregion
-    @Override
-    public String toString() {
-		return "Viagem:\n Bairro Destino: " + destino + 
+	@Override
+	public String toString()
+	{
+		return "Viagem:\n Bairro Destino: " + destino +
 				"\n Bairro Origem: " + origem + "\n Cidade: " + cidade +
-				"\n Custo: "+ custo;
-    }
+				"\n Custo: " + custo;
+	}
 }

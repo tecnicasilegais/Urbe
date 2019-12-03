@@ -29,7 +29,6 @@ public class ServicosPassageiro
 	{
 		Retorno<Passageiro> passageiro = passageiros.obterPorCpf(cpf);
 		//impl SelVeiculo + motorista
-		
 
 		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
 		//asserts primeiro

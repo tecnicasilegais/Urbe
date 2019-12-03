@@ -6,7 +6,6 @@ import com.urbe.entidades.Viagem;
 
 import java.util.List;
 
-@SuppressWarnings("rawtypes")
 public interface IRepositorioViagens
 {
 	Retorno cadastrarViagem(Viagem viagem);

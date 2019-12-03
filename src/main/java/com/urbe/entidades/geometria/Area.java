@@ -27,9 +27,9 @@ public class Area
 
 	public Ponto pontoCentral()
 	{
-		int x = Math.floorDiv(Math.abs(xMax-xMin), 2);
-		int y = Math.floorDiv(Math.abs(yMax-yMin), 2);
-		return new Ponto(x,y);
+		int x = Math.floorDiv(Math.abs(xMax - xMin), 2);
+		int y = Math.floorDiv(Math.abs(yMax - yMin), 2);
+		return new Ponto(x, y);
 	}
 
 	public SituacaoReta classifica(Reta reta)
@@ -68,15 +68,5 @@ public class Area
 		return "Area [pInfDir=" + pInfDir + ", pSupEsq=" + pSupEsq + "]";
 	}
 
-	//region Getters/Setters
-	public Ponto pSupEsq()
-	{
-		return pSupEsq;
-	}
-
-	public Ponto pInfDir()
-	{
-		return pInfDir;
-	}
 	//endregion
 }

@@ -8,6 +8,15 @@ public class Passageiro
 	private long somaAvaliacoes;
 	private long qtdAvaliacoes;
 
+	private Passageiro(String cpf, String nome, FormaPagamento formaPagamento, long somaAvaliacoes, long qtdAvaliacoes)
+	{
+		this.cpf = cpf;
+		this.nome = nome;
+		this.formaPagamentoPadrao = formaPagamento;
+		this.somaAvaliacoes = somaAvaliacoes;
+		this.qtdAvaliacoes = qtdAvaliacoes;
+	}
+
 	/**
 	 * Construtor para um novo passageiro.
 	 *
@@ -36,15 +45,6 @@ public class Passageiro
 	public static Passageiro novoPassageiroExistente(String cpf, String nome, FormaPagamento formaPagamento, long somaAvaliacoes, long qtdAvaliacoes)
 	{
 		return new Passageiro(cpf, nome, formaPagamento, somaAvaliacoes, qtdAvaliacoes);
-	}
-
-	private Passageiro(String cpf, String nome, FormaPagamento formaPagamento, long somaAvaliacoes, long qtdAvaliacoes)
-	{
-		this.cpf = cpf;
-		this.nome = nome;
-		this.formaPagamentoPadrao = formaPagamento;
-		this.somaAvaliacoes = somaAvaliacoes;
-		this.qtdAvaliacoes = qtdAvaliacoes;
 	}
 
 	// region getters/setters
@@ -148,12 +148,7 @@ public class Passageiro
 
 		Passageiro otherPassageiro = (Passageiro) other;
 
-		if (this.cpf.equals(otherPassageiro.cpf))
-		{
-			return true;
-		}
-
-		return false;
+		return this.cpf.equals(otherPassageiro.cpf);
 	}
 
 	@Override

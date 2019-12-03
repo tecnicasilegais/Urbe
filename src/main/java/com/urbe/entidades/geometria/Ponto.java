@@ -23,26 +23,21 @@ public class Ponto
 	}
 	//endregion
 
-	
 	@Override
 	public boolean equals(Object other)
 	{
-		if(this == other)
-			return true;
+		if (this == other)
+		{ return true; }
 
 		if (other == null || other.getClass() != this.getClass())
-			return false;
+		{ return false; }
 
 		Ponto otherPonto = (Ponto) other;
 
-		if ((this.x == otherPonto.x) &&
-			 (this.y == otherPonto.y)){
-			return true;
-		}
-
-		return false;
+		return (this.x == otherPonto.x) &&
+				(this.y == otherPonto.y);
 	}
-	
+
 	@Override
 	public String toString()
 	{

@@ -13,34 +13,6 @@ public class Motorista
 	private Veiculo veiculo;
 	private Set<FormaPagamento> formasPagamento;
 
-	/**
-	 * Construtor para um novo motorista.
-	 * @param cpf String contendo cpf do motorista
-	 * @param nome String contendo nome do motorista
-	 * @param veiculo Veiculo do motorista
-	 * @param formasPagamento Lista contendo as formas de pagamento que o motorista aceita
-	 * @return Uma instância de motorista
-	 */
-	public static Motorista novoMotorista(String cpf, String nome, Veiculo veiculo, List<FormaPagamento> formasPagamento)
-	{
-		return new Motorista(cpf, nome, veiculo, new HashSet<FormaPagamento>(formasPagamento),8,1);
-	}
-
-	/**
-	 * Construtor para um motorista existente na base de dados
-	 * @param cpf String contendo cpf do motorista
-	 * @param nome String contendo nome do motorista
-	 * @param somaAvaliacoes soma das avaliações recebidas pelo motorista
-	 * @param qtdAvaliacoes quantidade de avaliações que o motorista ja recebeu
-	 * @param veiculo Veiculo do motorista
-	 * @param formasPagamento Lista contendo as formas de pagamento que o motorista aceita
-	 * @return Uma instância de motorista
-	 */
-	public static Motorista motoristaExistente(String cpf, String nome, long somaAvaliacoes, long qtdAvaliacoes, Veiculo veiculo, List<FormaPagamento> formasPagamento)
-	{
-		return new Motorista(cpf, nome, veiculo, new HashSet<FormaPagamento>(formasPagamento), somaAvaliacoes, qtdAvaliacoes);
-	}
-
 	private Motorista(String cpf, String nome, Veiculo veiculo, Set<FormaPagamento> formasPagamento, long somaAvaliacoes, long qtdAvaliacoes)
 	{
 		this.cpf = cpf;
@@ -51,18 +23,52 @@ public class Motorista
 		this.formasPagamento = formasPagamento;
 	}
 
+	/**
+	 * Construtor para um novo motorista.
+	 *
+	 * @param cpf             String contendo cpf do motorista
+	 * @param nome            String contendo nome do motorista
+	 * @param veiculo         Veiculo do motorista
+	 * @param formasPagamento Lista contendo as formas de pagamento que o motorista aceita
+	 * @return Uma instância de motorista
+	 */
+	public static Motorista novoMotorista(String cpf, String nome, Veiculo veiculo, List<FormaPagamento> formasPagamento)
+	{
+		return new Motorista(cpf, nome, veiculo, new HashSet<FormaPagamento>(formasPagamento), 8, 1);
+	}
+
+	/**
+	 * Construtor para um motorista existente na base de dados
+	 *
+	 * @param cpf             String contendo cpf do motorista
+	 * @param nome            String contendo nome do motorista
+	 * @param somaAvaliacoes  soma das avaliações recebidas pelo motorista
+	 * @param qtdAvaliacoes   quantidade de avaliações que o motorista ja recebeu
+	 * @param veiculo         Veiculo do motorista
+	 * @param formasPagamento Lista contendo as formas de pagamento que o motorista aceita
+	 * @return Uma instância de motorista
+	 */
+	public static Motorista motoristaExistente(String cpf, String nome, long somaAvaliacoes, long qtdAvaliacoes, Veiculo veiculo,
+	                                           List<FormaPagamento> formasPagamento)
+	{
+		return new Motorista(cpf, nome, veiculo, new HashSet<FormaPagamento>(formasPagamento), somaAvaliacoes, qtdAvaliacoes);
+	}
+
 	// region Getters/Setters
+
 	/**
 	 * Retorna a media de pontuação do motorista (de 0 a 10)
+	 *
 	 * @return double contendo a media de pontuação
 	 */
 	public double pontuacaoMedia()
 	{
-		return this.somaAvaliacoes / this.qtdAvaliacoes;
+		return (double) (this.somaAvaliacoes / this.qtdAvaliacoes);
 	}
 
 	/**
 	 * Retorna o cpf do motorista
+	 *
 	 * @return String contendo o cpf
 	 */
 	public String cpf()
@@ -72,6 +78,7 @@ public class Motorista
 
 	/**
 	 * Retorna o nome do motorista
+	 *
 	 * @return String contendo o nome
 	 */
 	public String nome()
@@ -81,6 +88,7 @@ public class Motorista
 
 	/**
 	 * Retorna a soma das avaliações recebidas pelo motorista
+	 *
 	 * @return long contendo a soma das avaliações
 	 */
 	public long somaAvaliacoes()
@@ -90,6 +98,7 @@ public class Motorista
 
 	/**
 	 * Retorna a quantidade de avaliações que o motorista recebeu
+	 *
 	 * @return long contendo a quantidade de avaliações
 	 */
 	public long qtdAvaliacoes()
@@ -99,6 +108,7 @@ public class Motorista
 
 	/**
 	 * Retorna o Veiculo que o motorista utiliza
+	 *
 	 * @return Veiculo
 	 */
 	public Veiculo veiculo()
@@ -108,6 +118,7 @@ public class Motorista
 
 	/**
 	 * Retorna as formas de pagamento que o motorista aceita
+	 *
 	 * @return Set de FormaPagamento contendo as formas aceitas
 	 */
 	public Set<FormaPagamento> formasPagamento()
@@ -117,10 +128,11 @@ public class Motorista
 
 	/**
 	 * Avalia o motorista referente à uma viagem realizada
+	 *
 	 * @param pontuacao pontuação avaliada
 	 * @throws IllegalArgumentException caso o numero não seja de 0 a 10
 	 */
-	public void avalia (int pontuacao)
+	public void avalia(int pontuacao)
 	{
 		if (!(pontuacao >= 0 && pontuacao <= 10))
 		{
@@ -132,25 +144,26 @@ public class Motorista
 
 	//endregion
 	@Override
-	public boolean equals(Object other){
-		if(this == other)
-			return true;
-
-		if (other == null || other.getClass() != this.getClass())
-			return false;
-
-		Motorista otherMotorista = (Motorista) other;
-
-		if (this.cpf.equals(otherMotorista.cpf)){
+	public boolean equals(Object other)
+	{
+		if (this == other)
+		{
 			return true;
 		}
 
-		return false;
+		if (other == null || other.getClass() != this.getClass())
+		{
+			return false;
+		}
+
+		Motorista otherMotorista = (Motorista) other;
+
+		return this.cpf.equals(otherMotorista.cpf);
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Motorista: \n	nome: "+nome+"\n	cpf: "+cpf+"\n pontuação: "+ this.pontuacaoMedia();
+		return "Motorista: \n	nome: " + nome + "\n	cpf: " + cpf + "\n pontuação: " + this.pontuacaoMedia();
 	}
 }

@@ -41,7 +41,7 @@ public class RepositorioViagens implements IRepositorioViagens
 	@Override
 	public Retorno<List<Viagem>> obterViagens(Motorista motorista)
 	{
-		List<Viagem> viagensMotorista = viagens.get(motorista);
+		List<Viagem> viagensMotorista = viagens.get(motorista.cpf());
 		if (viagensMotorista == null)
 		{
 			return Retorno.retornarFalha("Motorista " + motorista.nome() + "não tem viagens: ");
