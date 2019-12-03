@@ -27,12 +27,7 @@ public class ServicosMotorista
 		this.passageiros = passageiros;
 	}
 
-	public Retorno<Motorista> obterDadosMotorista(String cpf)
-	{
-		return motoristas.obterPorCpf(cpf);
-	}
-
-	public Retorno<List<Viagem>> obterViagensMotorista(String cpf)
+	public Boolean obterViagensMotorista(String cpf)
 	{
 		Retorno<Motorista> retMotorista = motoristas.obterPorCpf(cpf);
 		if (!retMotorista.ok())
@@ -44,17 +39,16 @@ public class ServicosMotorista
 		{
 			throw new IllegalArgumentException(retViagens.mensagem());
 		}
-		return retViagens;
+		return true;
 	}
 
-	public Retorno<Passageiro> avaliarPassageiro(String cpf, int avaliacao)
+	public Boolean avaliarPassageiro(String cpf, int avaliacao)
 	{
-		Retorno<Passageiro> retPassageiro = passageiros.obterPorCpf(cpf);
+		Retorno<Passageiro> retPassageiro = passageiros.avaliarPassageiro(cpf, avaliacao);
 		if (!retPassageiro.ok())
 		{
 			throw new IllegalArgumentException(retPassageiro.mensagem());
 		}
-
-		passageiros.
+		return true;
 	}
 }
