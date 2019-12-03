@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class RepositorioMotoristas implements IRepositorioMotoristas
@@ -61,5 +63,11 @@ public class RepositorioMotoristas implements IRepositorioMotoristas
 			return Retorno.retornarFalha("Motorista inexistente: " + cpf);
 		}
 		return Retorno.retornarSucesso(motorista);
+	}
+
+	@Override
+	public List<Motorista> listarMotoristas()
+	{
+		return motoristas.values().stream().collect(Collectors.toList());
 	}
 }

@@ -2,7 +2,9 @@ package com.urbe.casos_de_uso.servicos;
 
 import com.urbe.casos_de_uso.repositorios.IRepositorioBairros;
 import com.urbe.casos_de_uso.repositorios.IRepositorioCidades;
+import com.urbe.casos_de_uso.repositorios.IRepositorioMotoristas;
 import com.urbe.casos_de_uso.repositorios.IRepositorioPassageiros;
+import com.urbe.casos_de_uso.politicas.SelecaoVeiculo;
 import com.urbe.entidades.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +15,11 @@ public class ServicosPassageiro
 	private IRepositorioCidades cidades;
 	private IRepositorioBairros bairros;
 	private IRepositorioPassageiros passageiros;
-	private ServicosMotorista motoristas;
+	private IRepositorioMotoristas motoristas;
 
 	@Autowired
 	public ServicosPassageiro(IRepositorioCidades cidades, IRepositorioBairros bairros, IRepositorioPassageiros passageiros,
-	                          ServicosMotorista motoristas)
+	                          IRepositorioMotoristas motoristas)
 	{
 		this.cidades = cidades;
 		this.bairros = bairros;
@@ -28,7 +30,14 @@ public class ServicosPassageiro
 	public Viagem criarViagem(String cpf, String bairroOrigem, String bairroDestino, String formaPagamento, String categoriaVeiculo)
 	{
 		Retorno<Passageiro> passageiro = passageiros.obterPorCpf(cpf);
-		//impl SelVeiculo + motorista
+		//nessa versão estaremos usando apenas a SelecaoMotoristaVeiculoPadrao 
+
+		List<Motorista> motorasDisponiveis = motoristas.listarMotoristas();
+
+
+		Retorno<Motorista> motora = SelecaoVeiculo
+										.criaSelecaoVeiculo("Padrao")
+										.selecMotorista(passageiro.dados(), formaPagamento,motorasDisponiveis, categoriaVeiculo);
 
 		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
 		//asserts primeiro
