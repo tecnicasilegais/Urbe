@@ -36,7 +36,9 @@ public class ServicosPassageiro
 		Bairro origem = cidade.dados().bairro(bairroOrigem);
 		Bairro destino = cidade.dados().bairro(bairroDestino);
 
-		
+		//calcular custo da viagem
+
+		//finalizar
 
 		return null;
 	}

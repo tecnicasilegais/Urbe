@@ -3,16 +3,20 @@ package com.urbe.casos_de_uso.politicas;
 import com.urbe.entidades.Passageiro;
 import com.urbe.entidades.Veiculo;
 import com.urbe.entidades.Motorista;
+
+import java.util.List;
+
 import com.urbe.entidades.FormaPagamento;
 
-public abstract class SelecionaVeiculo
+public abstract class SelecaoMotoristaVeiculo
 {
-    private Motorista motorista;
+    private List<Motorista> motoristas;
     private Passageiro passageiro;
+    private FormaPagamento formaPgto;
 
-    public void motorista(Motorista motorista)
+    public void motoristas(List<Motorista> motoristas)
     {
-        this.motorista = motorista;
+        this.motoristas = motoristas;
     }
 
     public void passageiro(Passageiro passageiro)
@@ -20,14 +24,24 @@ public abstract class SelecionaVeiculo
         this.passageiro = passageiro;
     }
 
-    public Motorista motorista()
+    public void formaPgto(FormaPagamento formaPgto)
     {
-        return motorista;
+        this.formaPgto = formaPgto;
+    }
+
+    public List<Motorista> motoristas()
+    {
+        return motoristas;
     }
 
     public Passageiro passageiro()
     {
         return passageiro;
+    }
+
+    public FormaPagamento formaPgto()
+    {
+        return formaPgto;
     }
 
     public Motorista selecionaMotorista()
