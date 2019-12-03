@@ -20,7 +20,6 @@ import org.springframework.stereotype.Service;
 public class ServicosPassageiro
 {
 	private IRepositorioCidades cidades;
-	private IRepositorioBairros bairros;
 	private IRepositorioPassageiros passageiros;
 	private IRepositorioMotoristas motoristas;
 
@@ -29,7 +28,6 @@ public class ServicosPassageiro
 	                          IRepositorioMotoristas motoristas)
 	{
 		this.cidades = cidades;
-		this.bairros = bairros;
 		this.passageiros = passageiros;
 		this.motoristas = motoristas;
 	}
@@ -120,7 +118,7 @@ public class ServicosPassageiro
 		}
 
 		motora.dados().avalia(avaliacaoMotorista);
-		
+
 		return true;
 	}
 }
