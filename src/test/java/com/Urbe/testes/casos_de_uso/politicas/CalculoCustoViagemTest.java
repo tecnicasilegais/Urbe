@@ -56,7 +56,7 @@ public class CalculoCustoViagemTest
 	{
 		double custo = CustoViagem.criaCustoViagem("Basico")
 							.custoViagem(city, b1, b2, p1, v1);
-		assertEquals(12, custo);
+		assertEquals(16, custo);
 	}
 
 
