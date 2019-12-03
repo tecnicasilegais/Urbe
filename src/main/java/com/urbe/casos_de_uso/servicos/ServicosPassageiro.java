@@ -28,8 +28,16 @@ public class ServicosPassageiro
 	public Viagem criarViagem(String cpf, String bairroOrigem, String bairroDestino, String formaPagamento, String categoriaVeiculo)
 	{
 		Retorno<Passageiro> passageiro = passageiros.obterPorCpf(cpf);
+		//impl SelVeiculo + motorista
+		
+
 		Retorno<Cidade> cidade = cidades.obterPorNome("POO");
-		//Motorista motorista = motoristas.("Marcelo");
+		//asserts primeiro
+		Bairro origem = cidade.dados().bairro(bairroOrigem);
+		Bairro destino = cidade.dados().bairro(bairroDestino);
+
+		
+
 		return null;
 	}
 
