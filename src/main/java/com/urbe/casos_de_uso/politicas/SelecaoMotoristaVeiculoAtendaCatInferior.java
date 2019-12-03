@@ -17,14 +17,14 @@ public class SelecaoMotoristaVeiculoAtendaCatInferior extends SelecaoMotoristaVe
 		{
 			case "SIMPLES":
 				return motoristas().stream()
-						.filter(mt -> mt.veiculo().getClass().getName().equals(categoriaVeiculo())
-								|| (mt.veiculo().getClass().getName().equals("NORMAL") &&
+						.filter(mt -> mt.veiculo().tipo().equals(categoriaVeiculo())
+								|| (mt.veiculo().tipo().equals("NORMAL") &&
 										    ((VeiculoNormal) mt.veiculo()).atendeCategoriaInferior()))
 						.collect(Collectors.toList());
 			case "NORMAL":
 				return motoristas().stream()
-						.filter(mt -> mt.veiculo().getClass().getName().equals(categoriaVeiculo())
-								|| (mt.veiculo().getClass().getName().equals("LUXO") &&
+						.filter(mt -> mt.veiculo().tipo().equals(categoriaVeiculo())
+								|| (mt.veiculo().tipo().equals("LUXO") &&
 										    ((VeiculoLuxo) mt.veiculo()).atendeCategoriaInferior()))
 						.collect(Collectors.toList());
 			default:

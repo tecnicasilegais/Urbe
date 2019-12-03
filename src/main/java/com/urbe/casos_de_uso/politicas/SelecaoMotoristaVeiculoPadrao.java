@@ -20,7 +20,7 @@ public class SelecaoMotoristaVeiculoPadrao extends SelecaoMotoristaVeiculo
 	public List<Motorista> filtraCategoria()
 	{
 		return motoristas().stream()
-				.filter(mt -> mt.veiculo().getClass().getName().equals(categoriaVeiculo()))
+				.filter(mt -> mt.veiculo().tipo().equals(categoriaVeiculo()))
 				.collect(Collectors.toList());
 	}
 
