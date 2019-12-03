@@ -1,5 +1,6 @@
 package com.urbe.interfaces.webservice;
 
+import com.urbe.casos_de_uso.servicos.ServicosMotorista;
 import com.urbe.casos_de_uso.servicos.ServicosPassageiro;
 import com.urbe.entidades.TOViagem;
 import com.urbe.entidades.Viagem;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClienteFachadaRemota
 {
 	private ServicosPassageiro servicosPassageiro;
+	private ServicosMotorista servicosMotorista;
 
 	@Autowired
-	public ClienteFachadaRemota(ServicosPassageiro servicosPassageiro)
+	public ClienteFachadaRemota(ServicosPassageiro servicosPassageiro, ServicosMotorista servicosMotorista)
 	{
 		this.servicosPassageiro = servicosPassageiro;
+		this.servicosMotorista = servicosMotorista;
 	}
 
 	@GetMapping("/solicitarviagem")
@@ -40,9 +43,16 @@ public class ClienteFachadaRemota
 	}
 
 	@GetMapping("/avaliarmotorista")
-	public Boolean dadosViagem(@RequestParam String cpfMotorista,
-	                           @RequestParam int avaliacaoMotorista)
+	public Boolean avaliarMotorista(@RequestParam String cpfMotorista,
+	                                @RequestParam int avaliacaoMotorista)
 	{
 		return servicosPassageiro.avaliarMotorista(cpfMotorista, avaliacaoMotorista);
+	}
+
+	@GetMapping("/avaliarpassageiro")
+	public Boolean avaliarPassageiro(@RequestParam String cpfPassageiro,
+	                                 @RequestParam int avaliacaoPassageiro)
+	{
+		return servicosMotorista.avaliarPassageiro(cpfPassageiro, avaliacaoPassageiro);
 	}
 }

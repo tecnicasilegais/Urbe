@@ -25,9 +25,13 @@ public class RepositorioPassageiros implements IRepositorioPassageiros
 	@Override
 	public Retorno<Passageiro> avaliarPassageiro(String cpf, int avaliacao)
 	{
-		Passageiro passBase = passageiros.get(cpf);
-		passBase.avalia(avaliacao);
-		return Retorno.retornarSucesso(passBase);
+		Passageiro passageiro = passageiros.get(cpf);
+		if (passageiro == null)
+		{
+			return Retorno.retornarFalha("Passageiro inexistente: " + cpf);
+		}
+		passageiro.avalia(avaliacao);
+		return Retorno.retornarSucesso(passageiro);
 	}
 
 	@Override
