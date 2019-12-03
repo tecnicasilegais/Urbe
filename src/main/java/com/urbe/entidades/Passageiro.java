@@ -10,8 +10,9 @@ public class Passageiro
 
 	/**
 	 * Construtor para um novo passageiro.
-	 * @param cpf String contendo cpf do passageiro
-	 * @param nome String contendo nome do passageiro
+	 *
+	 * @param cpf            String contendo cpf do passageiro
+	 * @param nome           String contendo nome do passageiro
 	 * @param formaPagamento Forma de pagamento que o passageiro utiliza
 	 * @return Uma instância de passageiro
 	 */
@@ -24,11 +25,12 @@ public class Passageiro
 
 	/**
 	 * Construtor para um passageiro existente na base de dados
-	 * @param cpf String contendo cpf do passageiro
-	 * @param nome String contendo nome do passageiro
+	 *
+	 * @param cpf            String contendo cpf do passageiro
+	 * @param nome           String contendo nome do passageiro
 	 * @param formaPagamento Forma de pagamento que o passageiro utiliza
 	 * @param somaAvaliacoes soma das avaliações recebidas pelo passageiro
-	 * @param qtdAvaliacoes quantidade de avaliações que o passageiro ja recebeu
+	 * @param qtdAvaliacoes  quantidade de avaliações que o passageiro ja recebeu
 	 * @return Uma instância de passageiro
 	 */
 	public static Passageiro novoPassageiroExistente(String cpf, String nome, FormaPagamento formaPagamento, long somaAvaliacoes, long qtdAvaliacoes)
@@ -49,6 +51,7 @@ public class Passageiro
 
 	/**
 	 * Retorna a media de pontuação do passageiro (de 0 a 10)
+	 *
 	 * @return double contendo a media de pontuação
 	 */
 	public double pontuacaoMedia()
@@ -58,6 +61,7 @@ public class Passageiro
 
 	/**
 	 * Retorna o cpf do passageiro
+	 *
 	 * @return String contendo o cpf
 	 */
 	public String cpf()
@@ -67,6 +71,7 @@ public class Passageiro
 
 	/**
 	 * Retorna o nome do passageiro
+	 *
 	 * @return String contendo o nome
 	 */
 	public String nome()
@@ -76,6 +81,7 @@ public class Passageiro
 
 	/**
 	 * Retorna a soma das avaliações recebidas pelo passageiro
+	 *
 	 * @return long contendo a soma das avaliações
 	 */
 	public long somaAvaliacoes()
@@ -85,6 +91,7 @@ public class Passageiro
 
 	/**
 	 * Retorna a quantidade de avaliações que o passageiro recebeu
+	 *
 	 * @return long contendo a quantidade de avaliações
 	 */
 	public long qtdAvaliacoes()
@@ -94,6 +101,7 @@ public class Passageiro
 
 	/**
 	 * Retorna a forma de pagamento que o passageiro utiliza
+	 *
 	 * @return FormaPagamento contendo a forma utilizada
 	 */
 	public FormaPagamento formaPagamento()
@@ -102,11 +110,22 @@ public class Passageiro
 	}
 
 	/**
+	 * Atualiza a forma de pagamento padrão do passageiro.
+	 *
+	 * @param formaPagamento nova forma de pagamento
+	 */
+	public void formaPagamento(FormaPagamento formaPagamento)
+	{
+		this.formaPagamentoPadrao = formaPagamento;
+	}
+
+	/**
 	 * Avalia o passageiro referente à uma viagem realizada
+	 *
 	 * @param pontuacao pontuação avaliada
 	 * @throws IllegalArgumentException caso o numero não seja de 0 a 10
 	 */
-	public void avalia (int pontuacao)
+	public void avalia(int pontuacao)
 	{
 		if (!(pontuacao >= 0 && pontuacao <= 10))
 		{
@@ -117,25 +136,29 @@ public class Passageiro
 	}
 
 	//endregion
+
 	@Override
-	public boolean equals(Object other){
-		if(this == other)
-			return true;
+	public boolean equals(Object other)
+	{
+		if (this == other)
+		{ return true; }
 
 		if (other == null || other.getClass() != this.getClass())
-			return false;
+		{ return false; }
 
 		Passageiro otherPassageiro = (Passageiro) other;
 
-		if (this.cpf.equals(otherPassageiro.cpf)){
+		if (this.cpf.equals(otherPassageiro.cpf))
+		{
 			return true;
 		}
 
 		return false;
 	}
+
 	@Override
 	public String toString()
 	{
-		return "Passageiro: \n	nome: "+nome+"\n	cpf: "+cpf+"\n pontuação: "+ this.pontuacaoMedia();
+		return "Passageiro: \n	nome: " + nome + "\n	cpf: " + cpf + "\n pontuação: " + this.pontuacaoMedia();
 	}
 }
