@@ -27,7 +27,7 @@ public class ServicosMotorista
 		this.passageiros = passageiros;
 	}
 
-	public Boolean obterViagensMotorista(String cpf)
+	public List<Viagem> obterViagensMotorista(String cpf)
 	{
 		Retorno<Motorista> retMotorista = motoristas.obterPorCpf(cpf);
 		if (!retMotorista.ok())
@@ -39,7 +39,7 @@ public class ServicosMotorista
 		{
 			throw new IllegalArgumentException(retViagens.mensagem());
 		}
-		return true;
+		return retViagens.dados();
 	}
 
 	public Boolean avaliarPassageiro(String cpf, int avaliacao)
